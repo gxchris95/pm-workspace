@@ -1,4 +1,4 @@
-# PM Workspace — Starter Template
+# PM Workspace
 
 A ready-to-use workspace for product managers who want to build persistent, compounding knowledge bases with LLMs.
 
@@ -12,7 +12,7 @@ Works with any agent that reads/writes local files: GitHub Copilot in VS Code, C
 
 ## Quick start
 
-1. **Copy this `template/` folder** to a new location. Rename it to your domain (e.g., `data-platform-wiki/`).
+1. **Copy this `pm-workspace/` folder** to a new location. Rename it to your domain (e.g., `data-platform-wiki/`).
 
 2. **Edit `AGENTS.md`** — fill in the `[brackets]`:
    - "Who this is for" — describe your portfolio
@@ -31,7 +31,7 @@ Works with any agent that reads/writes local files: GitHub Copilot in VS Code, C
 ## What's included
 
 ```
-template/
+pm-workspace/
 ├── README.md              ← You're reading this (setup reference)
 ├── GUIDE.md               ← The pattern explained (read this first)
 ├── AGENTS.md              ← Schema — the LLM's operating manual (edit this first)
