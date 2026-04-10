@@ -55,7 +55,7 @@ Every product page should link to its pillar. Every pillar should link to its pr
 Pages with no inbound links from any other page.
 
 #### Product coverage
-Check if any product mentioned in `aip-docs/docs/` lacks a `wiki/products/` page. Check if any product in `AGENTS.md` taxonomy is missing from `wiki/index.md`.
+Check if any product mentioned in `raw/` lacks a `wiki/products/` page. Check if any product in `AGENTS.md` taxonomy is missing from `wiki/index.md`.
 
 #### Roadmap currency
 Check `wiki/topics/roadmap-timeline.md` for items past their target date without a status update. Run a lightweight `/roadmap-check`.

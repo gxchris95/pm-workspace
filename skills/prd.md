@@ -17,7 +17,7 @@ You have a validated requirement (from `/intake` or `/synthesize`) and need to t
 
 ### 1. Read existing formats
 
-Scan `aip-docs/docs/roadmap/` for format reference. Match the existing style, depth, and structure used by the team's real PRDs.
+Scan `raw/roadmaps/` and `workspace/prds/` for format reference. Match the existing style, depth, and structure used by the team's real PRDs.
 
 ### 2. Gather context
 

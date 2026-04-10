@@ -119,7 +119,7 @@ Save to `workspace/briefs/<topic>.md`.
 
 - An exec brief over 1 page won't be read. Brevity is respect for the reader's time.
 - "Let me know if you have questions" is not an ask. "I need a decision on X by Friday" is.
-- Use concrete numbers from the wiki, not vague qualifiers. "51+ BUs" not "many teams."
+- Use concrete numbers from the wiki, not vague qualifiers. "[X] teams" not "many teams."
 - If the audience is mixed, write for the most senior person and add a technical appendix.
 
 ## See also

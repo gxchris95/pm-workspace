@@ -8,11 +8,11 @@ A ready-to-use workspace for product managers who want to build persistent, comp
 
 A folder structure + schema + 12 AI workflows that turn any LLM agent into a disciplined PM assistant. You bring the sources and judgment. The LLM builds and maintains the wiki, writes PRDs, runs competitive analysis, prepares exec briefs, and more.
 
-Works with any agent that reads/writes local files: GitHub Copilot in VS Code, Claude Code, OpenAI Codex, Cursor, etc.
+Works with any agent that reads/writes local files: Claude Code, GitHub Copilot in VS Code, and others.
 
 ## Quick start
 
-1. **Copy this `pm-workspace/` folder** to a new location. Rename it to your domain (e.g., `data-platform-wiki/`).
+1. **Copy this `pm-workspace/` folder** to a new location. Rename it to your domain (e.g., `ai-platform-wiki/`).
 
 2. **Edit `AGENTS.md`** — fill in the `[brackets]`:
    - "Who this is for" — describe your portfolio
@@ -129,7 +129,7 @@ pm-workspace/
 ## Credits
 
 This system synthesizes patterns from:
-- **[LLM Wiki](https://github.com/karpathy/llm-council?tab=readme-ov-file)** (Andrej Karpathy) — three-layer knowledge architecture
+- **[LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)** (Andrej Karpathy) — three-layer knowledge architecture
 - **[gstack](https://github.com/garrytan/gstack)** (Garry Tan) — AI skills as sprint process
 - **GTD** (David Allen), **PARA** (Tiago Forte), **Shape Up** (Ryan Singer / Basecamp)
 - **Continuous Discovery** (Teresa Torres), **SVPG** (Marty Cagan), **ADRs** (Michael Nygard)

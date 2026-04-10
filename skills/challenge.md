@@ -61,7 +61,7 @@ List every assumption the artifact makes (explicitly or implicitly):
 
 - Cross-reference `wiki/topics/roadmap-timeline.md` — is this competing with higher-priority work?
 - Cross-reference `wiki/topics/dependencies.md` — is this blocked by something external?
-- Is FY27 Q1 already overloaded? (Hint: it probably is.)
+- Is the target quarter already overloaded?
 
 ### 7. Deliver the verdict
 
@@ -85,7 +85,7 @@ List every assumption the artifact makes (explicitly or implicitly):
 
 ## Rules
 
-- Be specific, not vague. "This seems risky" is useless. "This depends on Entra Agent ID rollout which has no confirmed date per `wiki/topics/dependencies.md`" is useful.
+- Be specific, not vague. "This seems risky" is useless. "This depends on [dependency X] rollout which has no confirmed date per `wiki/topics/dependencies.md`" is useful.
 - Distinguish between "I disagree with the direction" and "there's a factual gap." Both are valid but they're different.
 - Always include what's strong. Pure negativity is unhelpful and demoralizing.
 - The PM has final authority. This skill informs; it doesn't decide.

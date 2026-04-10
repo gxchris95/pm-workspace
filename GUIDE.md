@@ -4,7 +4,7 @@ A guide for product managers who want to build persistent, compounding knowledge
 
 This document is for you, the PM. Read it to understand the pattern, then hand `AGENTS.md` to your LLM agent. You bring the judgment and the sources. The agent builds and maintains everything else.
 
-Based on the [LLM Wiki](https://gist.github.com/karpathy/1dd0294ef9567971c1e4348a90d69285) pattern by Andrej Karpathy.
+Based on the [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern by Andrej Karpathy.
 
 ## The core idea
 
@@ -25,7 +25,7 @@ PMs sit at the intersection of strategy, execution, and communication:
 - **Synthesize across sources.** Connect a customer request to a roadmap item to a dependency to an exec priority. The wiki maintains these connections persistently.
 - **Track the state of many things at once.** A dozen products, their statuses, who's adopting, what's blocked, what's next. Standardized product pages give you a consistent portfolio view.
 - **Prepare for conversations fast.** An exec asks about readiness. A stakeholder wants adoption numbers. The wiki is always ready because the LLM kept it current.
-- **Spot contradictions.** The roadmap says Q2 but the dependency owner said Q3. The adoption page says 14 teams but the exec deck says 12. The LLM catches these during ingest.
+- **Spot contradictions.** The roadmap says Q2 but the dependency owner said Q3. The adoption page says [X] teams but the exec deck says [Y]. The LLM catches these during ingest.
 
 PMs abandon wikis and Notion databases because the maintenance burden grows faster than the value. Stale becomes untrustworthy, untrustworthy becomes unused. LLMs change the economics — they don't get bored, don't forget to update a cross-reference, and can touch 15 files in one pass. **The human curates and decides. The LLM does everything else.**
 
@@ -143,7 +143,7 @@ The schema (`AGENTS.md`) encodes your PM mental model into rules the LLM follows
 4. **Skill routing.** When the PM invokes a skill, follow that skill's structured workflow instead of answering ad-hoc.
 5. **Conventions.** `[[wiki-style links]]` for Obsidian. YAML frontmatter. Date formats.
 
-A complete, ready-to-customize `AGENTS.md` is included in this template. Fill in the brackets and you're running.
+A complete, ready-to-customize `AGENTS.md` is included in this workspace. Fill in the brackets and you're running.
 
 ## Note
 

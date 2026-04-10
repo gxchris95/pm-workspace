@@ -95,8 +95,8 @@ output_to: [where artifacts go]
 ## References
 
 This system synthesizes:
-- **LLM Wiki** (Andrej Karpathy) — three-layer knowledge architecture
-- **gstack** (Garry Tan) — AI skills as sprint process, specialist personas
+- **[LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)** (Andrej Karpathy) — three-layer knowledge architecture
+- **[gstack](https://github.com/garrytan/gstack)** (Garry Tan) — AI skills as sprint process, specialist personas
 - **GTD** (David Allen) — capture → clarify → organize → reflect → engage
 - **PARA** (Tiago Forte) — Projects, Areas, Resources, Archive
 - **Shape Up** (Ryan Singer / Basecamp) — appetite-driven shaping, bounded problems
