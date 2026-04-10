@@ -1,12 +1,12 @@
 # PM Workspace
 
-A ready-to-use workspace for product managers who want to build persistent, compounding knowledge bases with LLMs.
+An AI-powered PM operating system — a persistent knowledge base, 12 structured workflows, and a schema that turns any LLM agent into a disciplined product management partner.
 
 **New here?** Read `GUIDE.md` first — it explains the pattern, why it works, and how to think about it day-to-day. This README is the setup reference.
 
 ## What this is
 
-A folder structure + schema + 12 AI workflows that turn any LLM agent into a disciplined PM assistant. You bring the sources and judgment. The LLM builds and maintains the wiki, writes PRDs, runs competitive analysis, prepares exec briefs, and more.
+A schema and 12 AI workflows that turn any LLM agent into a disciplined PM partner. You bring the sources and judgment. The LLM builds a persistent wiki, writes PRDs, runs competitive analysis, prepares exec briefs, tracks roadmap health, and more — all following structured, repeatable processes.
 
 Works with any agent that reads/writes local files: Claude Code, GitHub Copilot in VS Code, and others.
 
@@ -88,6 +88,8 @@ pm-workspace/
 - **Query** — Ask questions. LLM reads the wiki, synthesizes answers with citations.
 - **Lint** — Health check: contradictions, stale pages, orphan links, missed roadmap dates.
 
+Skills extend these operations with structured, multi-step workflows:
+
 **Twelve skills** — invoke by name when you need structured workflows:
 
 | Skill | When to use |
@@ -124,7 +126,7 @@ pm-workspace/
 - **AGENTS.md** — always customize (your portfolio, products, raw source structure)
 - **`raw/` subfolders** — rename to match your org's document types
 - **`wiki/topics/`** — add or remove topic pages as needed (governance, cost, security, etc.)
-- **Skills** — work out of the box for any PM domain. No changes needed.
+- **Skills** — work out of the box for any PM domain. Customize or add new ones as needed.
 
 ## Credits
 
