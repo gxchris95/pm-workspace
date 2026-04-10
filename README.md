@@ -107,7 +107,7 @@ pm-workspace/
 
 ## Recommended tools
 
-- **Obsidian** — `[[wiki-style links]]` become clickable. Graph view shows wiki shape. Dataview plugin enables dynamic queries over frontmatter.
+- **[Obsidian](https://obsidian.md/)** — `[[wiki-style links]]` become clickable. Graph view shows wiki shape. Dataview plugin enables dynamic queries over frontmatter.
 - **Git** — Free version history. `git diff` after each ingest is the single best trust mechanism.
 - **Obsidian Web Clipper** — browser extension that clips articles to markdown directly into `raw/`.
 
@@ -129,7 +129,7 @@ pm-workspace/
 ## Credits
 
 This system synthesizes patterns from:
-- **LLM Wiki** (Andrej Karpathy) — three-layer knowledge architecture
-- **gstack** (Garry Tan) — AI skills as sprint process
+- **[LLM Wiki](https://github.com/karpathy/llm-council?tab=readme-ov-file)** (Andrej Karpathy) — three-layer knowledge architecture
+- **[gstack](https://github.com/garrytan/gstack)** (Garry Tan) — AI skills as sprint process
 - **GTD** (David Allen), **PARA** (Tiago Forte), **Shape Up** (Ryan Singer / Basecamp)
 - **Continuous Discovery** (Teresa Torres), **SVPG** (Marty Cagan), **ADRs** (Michael Nygard)
