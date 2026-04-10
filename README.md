@@ -8,7 +8,7 @@ An AI-powered PM operating system — a persistent knowledge base, 12 structured
 
 A schema and 12 AI workflows that turn any LLM agent into a disciplined PM partner. You bring the sources and judgment. The LLM builds a persistent wiki, writes PRDs, runs competitive analysis, prepares exec briefs, tracks roadmap health, and more — all following structured, repeatable processes.
 
-Works with any agent that reads/writes local files: Claude Code, GitHub Copilot in VS Code, and others.
+Works with any agent that reads/writes local files: Claude Code, GitHub Copilot in VS Code, and others. A `CLAUDE.md` is included for Claude Code; other agents will read `AGENTS.md` directly.
 
 ## Quick start
 
@@ -18,6 +18,7 @@ Works with any agent that reads/writes local files: Claude Code, GitHub Copilot 
    - "Who this is for" — describe your portfolio
    - "Key product taxonomy" — list your products, groups, and statuses
    - "Raw sources" table — adjust subfolder names if needed
+   - Replace `[Your Domain]` in `AGENTS.md` and wiki files (`index.md`, `log.md`, `overview.md`) with your actual domain name
 
 3. **Drop your sources into `raw/`** — PRDs, exec decks, meeting notes, architecture docs. Loosely organized by type. Start with the most current, authoritative documents.
 
@@ -35,6 +36,7 @@ pm-workspace/
 ├── README.md              ← You're reading this (setup reference)
 ├── GUIDE.md               ← The pattern explained (read this first)
 ├── AGENTS.md              ← Schema — the LLM's operating manual (edit this first)
+├── CLAUDE.md              ← Claude Code entry point (reads AGENTS.md)
 ├── wiki/                  ← Knowledge base skeleton
 │   ├── index.md           ← Master catalog (LLM reads this first)
 │   ├── log.md             ← Chronological operation log
@@ -112,6 +114,7 @@ Skills extend these operations with structured, multi-step workflows:
 - **[Obsidian](https://obsidian.md/)** — `[[wiki-style links]]` become clickable. Graph view shows wiki shape. Dataview plugin enables dynamic queries over frontmatter.
 - **Git** — Free version history. `git diff` after each ingest is the single best trust mechanism.
 - **Obsidian Web Clipper** — browser extension that clips articles to markdown directly into `raw/`.
+- **[Marp](https://marp.app/)** — markdown-based slide decks. Generate presentations directly from wiki content.
 
 ## Tips
 
@@ -119,14 +122,16 @@ Skills extend these operations with structured, multi-step workflows:
 - **Stay hands-on at first.** Review every ingest. Guide corrections. Trust builds over time; batch later.
 - **File good conversations back into the wiki.** Comparison tables, exec briefs, analyses — don't let them vanish into chat history.
 - **Run `/lint` weekly.** Catches contradictions and stale claims before they reach stakeholders.
-- **Treat the wiki as a working draft, not source of truth.** Verify critical claims (dates, numbers, commitments) against raw sources before sending to execs.
+- **Treat the wiki as a working draft, not source of truth.** Spot-check specific claims (dates, numbers, commitments) against raw sources after each ingest. Use `git diff` to review what changed.
+- **Keep the workspace separate from personal notes.** Review LLM-generated content before pulling it into other systems or sharing with stakeholders.
 
 ## What to customize
 
+- **`[Your Domain]` placeholders** — replace in `AGENTS.md`, `wiki/index.md`, `wiki/log.md`, `wiki/overview.md`
 - **AGENTS.md** — always customize (your portfolio, products, raw source structure)
 - **`raw/` subfolders** — rename to match your org's document types
 - **`wiki/topics/`** — add or remove topic pages as needed (governance, cost, security, etc.)
-- **Skills** — work out of the box for any PM domain. Customize or add new ones as needed.
+- **Skills** — work out of the box for any PM domain. Customize or add new ones as needed. Claude Code users can also wire skills as native slash commands by copying them to `.claude/commands/`.
 
 ## Credits
 

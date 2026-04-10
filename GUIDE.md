@@ -108,7 +108,9 @@ The LLM will get things wrong:
 - **Hallucinate links.** `[[products/something]]` to a page that doesn't exist. Obsidian shows broken links in red.
 - **Silently rewrite.** Updating one page, the LLM may subtly shift meaning on others. This is the biggest risk.
 
-Mitigations: Treat the wiki as a **working draft, not source of truth.** Use `git diff` after each ingest — the single best trust mechanism. Review critical claims (dates, numbers, commitments) against the raw source before sending to execs. Run lint periodically.
+Mitigations: Treat the wiki as a **working draft, not source of truth.** Use `git diff` after each ingest — the single best trust mechanism. Spot-check 1-2 specific claims (dates, numbers, commitments) against the raw source after each ingest before sending to execs. Run lint periodically.
+
+**Contamination control.** Keep this workspace separate from your personal notes vault. LLM-generated content should be reviewed before being pulled into other systems or shared with stakeholders. The wiki is a working draft — not a distribution artifact.
 
 ## Privacy and security
 
@@ -120,9 +122,11 @@ This is for PMs managing a portfolio over months — many sources, compounding k
 
 ## Scaling
 
-**Small (1-20 products, <50 sources):** `index.md` is enough. No extra tooling needed.
+**Small (1-20 products, <50 sources):** `index.md` is enough. No extra tooling needed. The LLM reads the index to find relevant pages, then drills into them.
 
-**Medium (20-100 products, 50-200 sources):** Add local search. Dataview queries become essential.
+**Medium (20-100 products, 50-200 sources):** Add local search — [qmd](https://github.com/dwb2023/qmd-search) (local BM25/vector search for markdown) or similar. Dataview queries over frontmatter become essential for filtering and sorting. Add one-line summaries to each page's frontmatter so the LLM can preview pages without reading them fully.
+
+**Large (100+ products, 200+ sources):** Consider splitting into domain-specific workspaces with a shared `raw/` library. At this scale, embedding-based search and structured retrieval start to outperform index-based navigation.
 
 **Collaboration:** This is a personal tool by default. Sharing `wiki/` as read-only snapshots works fine. Shared wikis with multiple LLM editors are possible via git but need care around merge conflicts. Start personal, scale later.
 

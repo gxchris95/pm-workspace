@@ -85,44 +85,7 @@ Structure: `workspace/{prds, decisions, briefs, prototypes, retros}/`
 
 ### Product pages (`wiki/products/*.md`)
 
-Every product page follows this template:
-
-```markdown
----
-product: <product-name>
-pillar: [your grouping — e.g., "Platform" | "Consumer" | "Enterprise"]
-status: Production | Alpha | Beta | Coming Soon
-adoption: <number of teams or users>
-last_updated: YYYY-MM-DD
-sources: [list of raw source files that informed this page]
----
-
-# <Product Name>
-
-## Summary
-2-3 sentence executive summary. What it is, why it matters.
-
-## Status & Maturity
-Current production readiness. Known gaps or blockers.
-
-## Key Capabilities
-Bullet list of what it does.
-
-## Adoption
-Who's using it. Numbers. Key customer or team names.
-
-## Dependencies
-What this product depends on. What depends on it.
-
-## Roadmap
-Upcoming features, timeline, PRD links.
-
-## Open Questions
-Unresolved issues, risks, decisions needed.
-
-## Sources
-Links to raw source files that informed this page.
-```
+Every product page follows the template in `wiki/products/_template.md`. Required frontmatter: `product`, `pillar`, `status`, `adoption`, `last_updated`, `sources`. Required sections: Summary, Status & Maturity, Key Capabilities, Adoption, Dependencies, Roadmap, Open Questions, Sources.
 
 ### Pillar / group pages (`wiki/pillars/*.md`)
 
@@ -153,22 +116,7 @@ Operations: `ingest`, `query`, `lint`, `update`, `create`.
 
 ### Skill routing
 
-When the PM's request matches a skill, invoke that skill instead of answering ad-hoc. Skills have structured, multi-step workflows that produce better results than inline answers.
-
-| Pattern | Skill |
-|---------|-------|
-| Raw signal, Slack thread, meeting notes, feedback | `/intake` |
-| "Find patterns", multiple inputs, themes | `/synthesize` |
-| Prioritize, rank, score requirements | `/prioritize` |
-| Write a PRD, review a PRD, spec something out | `/prd` |
-| Decision needed, compare options, tradeoffs | `/decision` |
-| Push back, stress-test, find holes, red-team | `/challenge` |
-| Quick prototype, mockup, design spec | `/prototype` |
-| Exec brief, stakeholder update, summary for audience | `/brief` |
-| Roadmap check, timeline, what slipped | `/roadmap-check` |
-| Competitive landscape, market analysis, benchmarking | `/competitive` |
-| Retro, what shipped, learnings | `/retro` |
-| Health check, find issues, validate consistency | `/lint` |
+When the PM's request matches a skill trigger, read the corresponding skill file in `skills/` and follow its process instead of answering ad-hoc. See `skills/SCHEMA.md` for the full skill catalog, routing table, and sprint flow.
 
 If no skill matches, answer directly using the wiki as context.
 

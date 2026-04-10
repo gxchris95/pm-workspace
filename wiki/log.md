@@ -4,7 +4,7 @@ last_updated: YYYY-MM-DD
 
 # [Your Domain] — Log
 
-Chronological record of wiki operations. Newest entries at the bottom.
+Chronological record of wiki operations. Append new entries at the bottom — this keeps the log simple for LLM appending and `git diff` readable.
 
 ---
 
