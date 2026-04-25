@@ -1,0 +1,27 @@
+{
+  "skill": "prototype",
+  "should_trigger": [
+    "Build me a quick HTML prototype of the dashboard.",
+    "Mock up the new pricing page.",
+    "Make a clickable prototype of this flow.",
+    "Sketch this UI in HTML.",
+    "Create a fake demo of the feature.",
+    "Wireframe this in code.",
+    "Throw together a prototype I can show the team.",
+    "Build a single-page mock of the admin panel.",
+    "Make a static demo of this concept.",
+    "I want to see what this would look like — prototype it."
+  ],
+  "should_not_trigger": [
+    "Write a PRD.",
+    "Score these initiatives with RICE.",
+    "Run a retrospective.",
+    "Lint the wiki.",
+    "Triage the inbox.",
+    "Summarize for the exec team.",
+    "Compare us to Competitor X.",
+    "Record a decision.",
+    "Stress-test this plan.",
+    "What is everyone saying about pricing?"
+  ]
+}

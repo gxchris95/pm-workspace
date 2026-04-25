@@ -1,10 +1,11 @@
 ---
-skill: prototype
-trigger: /prototype
-phase: Prototype
-inputs: [PRD, design spec, feature description, or freeform idea]
-outputs: [interactive HTML prototype or detailed design spec]
-output_to: [workspace/prototypes/<name>.html or workspace/prototypes/<name>.md]
+name: prototype
+description: Build a quick interactive HTML prototype or detailed design spec from a PRD or feature description. Use this skill whenever the user wants something tangible — a prototype, mockup, demo, clickable preview, or spec — to share with stakeholders, validate a flow, or hand off to engineering. Mode 1 = self-contained HTML; Mode 2 = markdown design spec for non-visual features (APIs, data models, backend services).
+metadata:
+  phase: Prototype
+  inputs: [PRD, design spec, feature description, or freeform idea]
+  outputs: [interactive HTML prototype or detailed design spec]
+  output_to: workspace/prototypes/<name>.html (Mode 1) or workspace/prototypes/<name>.md (Mode 2)
 ---
 
 # Prototype — Quick Interactive Prototype or Design Spec
@@ -59,7 +60,7 @@ Structure:
 
 Add a hidden comment block at the top of the file:
 ```html
-<!-- 
+<!--
   PROTOTYPE: [name]
   DATE: YYYY-MM-DD
   SOURCE: [PRD or description that inspired this]
@@ -68,9 +69,20 @@ Add a hidden comment block at the top of the file:
 -->
 ```
 
-### 5. Save
+### 5. Self-check before delivering
 
-Save to `workspace/prototypes/<name>.html`. The PM can open it directly in a browser.
+The LLM cannot open a browser. Instead, validate by inspection:
+- Every `<a href>` and `<button onclick>` references a defined target/handler
+- All inline `<script>` referenced functions are defined
+- No external CDN URLs or `<img src>` to remote hosts (must be inline data URIs or omitted)
+- HTML is well-formed (closing tags match)
+- No placeholder text like `lorem ipsum` left in user-visible areas
+
+Tell the PM how to open it: `open workspace/prototypes/<name>.html` (macOS) or double-click in their file manager.
+
+### 6. Save
+
+Save to `workspace/prototypes/<name>.html`.
 
 ## Mode 2: Design Spec
 
@@ -129,7 +141,6 @@ Save to `workspace/prototypes/<name>.md`.
 - A prototype is disposable. Its purpose is to learn, not to ship. Don't over-polish.
 - If you're spending more than 20 minutes describing the prototype, you should just build it (Mode 1).
 - Use real data from the wiki — real product names, real team counts, real metrics. Fake data undermines credibility.
-- For HTML prototypes, test in browser before delivering. Broken prototypes erode trust faster than no prototype.
 
 ## See also
 

@@ -1,10 +1,11 @@
 ---
-skill: intake
-trigger: /intake
-phase: Discover
-inputs: [Slack thread, Jira ticket/epic, meeting notes, survey results, ad-hoc request, customer feedback]
-outputs: [structured requirement card]
-output_to: [workspace/prds/ (if actionable), wiki/ (if knowledge), raw/ (if reference-worthy)]
+name: intake
+description: Process raw PM signal — Slack threads, Jira tickets, meeting transcripts, survey results, customer feedback, ad-hoc executive asks — into structured requirement cards. Use this skill whenever the user pastes raw notes, references unprocessed signal in inbox/, mentions triaging feedback, asks to extract requirements, or wants to figure out what to do with messy input — even if they don't say "intake" explicitly.
+metadata:
+  phase: Discover
+  inputs: [Slack thread, Jira ticket/epic, meeting notes, survey results, ad-hoc request, customer feedback]
+  outputs: [structured requirement card]
+  output_to: workspace/intake/YYYY-MM-DD-<short>.md (and routes to wiki/, raw/, or workspace/prds/ via /prd)
 ---
 
 # Intake — Process Raw Signal
@@ -42,22 +43,35 @@ For each distinct requirement or ask in the signal, produce:
 
 ### 3. Challenge the framing
 
-Like gstack's `/office-hours` — push back on the explicit ask. Is the user describing a symptom or the root cause? Would a different framing lead to a better solution? If so, note it under "Need (implicit)."
+Push back on the explicit ask. Is the user describing a symptom or the root cause? Would a different framing lead to a better solution? If so, note it under "Need (implicit)."
 
 ### 4. Cross-reference the wiki
 
 Read `wiki/index.md`. Does this requirement relate to an existing product, topic, or roadmap item? Note connections. Flag contradictions with existing wiki content.
 
-### 5. Recommend disposition
+### 5. File the card
 
-- **Actionable + scoped** → Create workspace artifact (PRD draft, decision record)
-- **Knowledge** → Update relevant wiki page (use AGENTS.md ingest workflow)
-- **Reference-worthy source** → File in raw/ under appropriate subfolder
-- **Noise** → Note why, discard
+Save the card to `workspace/intake/YYYY-MM-DD-<short>.md` with frontmatter:
+
+```yaml
+---
+type: intake-card
+date: YYYY-MM-DD
+source: [origin]
+status: open | promoted | discarded
+---
+```
+
+Recommend disposition:
+
+- **Actionable + scoped** → run `/prd` next to promote to a PRD draft in `workspace/prds/`
+- **Knowledge** → run wiki ingest (see `AGENTS.md`)
+- **Reference-worthy source** → file in `raw/` under appropriate subfolder
+- **Noise** → mark `status: discarded`, note why
 
 ### 6. If multiple requirements
 
-Process each separately. Group related ones. Flag duplicates against existing requirements in `workspace/prds/`.
+Process each separately. Group related ones. Flag duplicates against existing requirements in `workspace/intake/` and `workspace/prds/`.
 
 ## Output format
 
@@ -82,4 +96,4 @@ Deliver all requirement cards in a single response. End with a summary table:
 
 - `/synthesize` — run across multiple intake cards to find patterns
 - `/prioritize` — rank the extracted requirements
-- `/prd` — if the intake surfaces something that needs a PRD
+- `/prd` — promote a card to a PRD draft

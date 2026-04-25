@@ -1,0 +1,27 @@
+{
+  "skill": "intake",
+  "should_trigger": [
+    "Here are the notes from yesterday's customer call — what should I do with them?",
+    "I just got a Slack thread from sales asking about feature X. Help me triage this.",
+    "Process this Jira ticket into a requirement.",
+    "Extract requirements from this transcript.",
+    "What's in the inbox?",
+    "Triage this feedback survey.",
+    "I have raw notes from the offsite — turn them into something structured.",
+    "An exec just pinged me with an ad-hoc ask. Capture it.",
+    "Convert this messy meeting note into an action card.",
+    "Help me figure out what to do with this dump of customer quotes."
+  ],
+  "should_not_trigger": [
+    "Write a PRD for the new pricing feature.",
+    "Summarize the roadmap for the leadership team.",
+    "Compare us to Competitor X.",
+    "Run a retrospective on last quarter.",
+    "Update the wiki page for Product Y.",
+    "Generate a competitive landscape analysis.",
+    "Score these initiatives with RICE.",
+    "Draft a decision record for the auth migration.",
+    "Stress-test our go-to-market plan.",
+    "Lint the wiki for stale pages."
+  ]
+}

@@ -1,10 +1,11 @@
 ---
-skill: competitive
-trigger: /competitive
-phase: Discover
-inputs: [product or capability to analyze, competitor names/URLs (optional), market context]
-outputs: [competitive landscape analysis with comparison table, gaps, and recommendations]
-output_to: [workspace/briefs/<product>-competitive.md or inline]
+name: competitive
+description: Build a competitive landscape analysis with market mapping, feature comparison table, differentiation breakdown, gap analysis, and strategic recommendations. Use this skill whenever the user asks how a product or capability compares to alternatives, wants to benchmark against competitors, asks "what are others doing", needs market context for a strategic decision, or wants build-vs-buy input.
+metadata:
+  phase: Discover
+  inputs: [product or capability to analyze, competitor names/URLs (optional), market context]
+  outputs: [competitive landscape analysis with comparison table, gaps, and recommendations]
+  output_to: workspace/briefs/<product>-competitive.md (or inline if PM declines to file)
 ---
 
 # Competitive — Market Landscape Analysis

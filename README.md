@@ -41,34 +41,48 @@ pm-workspace/
 │   ├── index.md           ← Master catalog (LLM reads this first)
 │   ├── log.md             ← Chronological operation log
 │   ├── overview.md        ← Portfolio-level synthesis
-│   ├── products/
-│   │   └── _template.md   ← Copy for each product
+│   ├── conventions.md     ← Long-form conventions reference
+│   ├── products/_template.md
 │   ├── topics/
+│   │   ├── _template.md
 │   │   ├── adoption.md
 │   │   ├── dependencies.md
 │   │   └── roadmap-timeline.md
-│   └── stakeholders/
-│       └── teams.md
-├── skills/                ← 12 PM workflow skills (ready to use)
+│   └── stakeholders/teams.md
+├── skills/                ← 12 PM workflow skills (one folder each)
 │   ├── SCHEMA.md          ← Skills system overview
-│   ├── intake.md          ← Process raw signals
-│   ├── synthesize.md      ← Find patterns across inputs
-│   ├── prioritize.md      ← Score and rank requirements
-│   ├── prd.md             ← Generate or review PRDs
-│   ├── decision.md        ← Structured decision records
-│   ├── challenge.md       ← Adversarial review
-│   ├── prototype.md       ← Quick prototypes and design specs
-│   ├── brief.md           ← Audience-appropriate summaries
-│   ├── roadmap-check.md   ← Validate roadmap, flag slips
-│   ├── competitive.md     ← Market landscape analysis
-│   ├── retro.md           ← What shipped vs. planned
-│   └── lint.md            ← Health check across wiki + workspace
-├── inbox/                 ← Signal queue (drop unprocessed inputs here)
+│   ├── intake/
+│   │   ├── SKILL.md       ← Process raw signals
+│   │   └── evals.json
+│   ├── synthesize/        ← Find patterns across inputs
+│   ├── prioritize/        ← Score and rank requirements
+│   ├── prd/               ← Generate or review PRDs
+│   ├── decision/          ← ADR-style decision records
+│   ├── challenge/         ← Adversarial review
+│   ├── prototype/         ← Quick HTML prototypes
+│   ├── brief/             ← Audience-tailored summaries
+│   ├── roadmap-check/     ← Validate roadmap, flag slips
+│   ├── competitive/       ← Market landscape analysis
+│   ├── retro/             ← Planned vs. actual
+│   └── lint/              ← Wiki + workspace health check
+├── inbox/                 ← Signal queue
+│   ├── README.md
+│   └── _template.md
+├── workspace/             ← Active artifacts
+│   ├── README.md
+│   ├── intake/_template.md
+│   ├── prds/_template.md
+│   ├── decisions/_template.md
+│   ├── briefs/_template.md
+│   ├── prototypes/_template.md
+│   └── retros/_template.md
+├── raw/                   ← Reference library
 │   └── README.md
-├── workspace/             ← Active work products (PRDs, decisions, briefs)
-│   └── README.md
-└── raw/                   ← Reference library (curated sources)
-    └── README.md
+├── scripts/
+│   └── validate.py        ← Spec compliance + frontmatter checker
+├── .github/workflows/lint.yml  ← CI: runs validator on push/PR
+├── mcp-config.example.json     ← Example MCP server config
+└── LICENSE                ← MIT
 ```
 
 ## How it works

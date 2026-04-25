@@ -16,7 +16,6 @@ sources: []
 
 | Quarter | Product | Milestone | Status | Risk |
 |---------|---------|-----------|--------|------|
-| | | | | |
 
 ## Risks
 

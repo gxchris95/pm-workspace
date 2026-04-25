@@ -1,0 +1,27 @@
+{
+  "skill": "competitive",
+  "should_trigger": [
+    "How do we compare to Competitor X?",
+    "What are others doing in this space?",
+    "Build a competitive landscape for the auth market.",
+    "Benchmark us against the top 3 players.",
+    "Should we build this or buy it?",
+    "What's the market for this category?",
+    "Compare our approach to alternatives.",
+    "Map the competitive landscape for SSO.",
+    "Where are we ahead and where do we trail?",
+    "Do a competitor feature comparison."
+  ],
+  "should_not_trigger": [
+    "Write a PRD.",
+    "Score these initiatives with RICE.",
+    "Triage these notes.",
+    "Lint the wiki.",
+    "Build a prototype.",
+    "Run a retrospective.",
+    "Summarize for the exec team.",
+    "Record a decision.",
+    "Stress-test this plan.",
+    "What is everyone saying about onboarding?"
+  ]
+}

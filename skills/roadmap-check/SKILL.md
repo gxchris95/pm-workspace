@@ -1,10 +1,11 @@
 ---
-skill: roadmap-check
-trigger: /roadmap-check
-phase: Validate
-inputs: [wiki/topics/roadmap-timeline.md, wiki/products/*, current date]
-outputs: [roadmap health report with slips, conflicts, and risks]
-output_to: [inline report — updates wiki if issues found]
+name: roadmap-check
+description: Validate roadmap health — surface slipped items, resource conflicts, blocked dependencies, alignment gaps, and stale roadmap entries. Use this skill whenever the user asks about roadmap status, wants to know what's slipping, prepares for a planning meeting, asks "how is the roadmap looking", or wants to validate the timeline before sharing externally.
+metadata:
+  phase: Validate
+  inputs: [wiki/topics/roadmap-timeline.md, wiki/products/*, current date]
+  outputs: [roadmap health report with slips, conflicts, and risks]
+  output_to: inline (no file written; updates wiki pages if issues found and PM approves)
 ---
 
 # Roadmap Check — Validate Roadmap Health
@@ -81,7 +82,7 @@ Flag roadmap items that don't map to any strategic priority (orphan work). Flag 
 
 ### 6. Check staleness
 
-Identify items with no status updates for 30+ days, products with no roadmap items, and roadmap entries that reference products not in the wiki.
+Use the **stale threshold** defined in `AGENTS.md` (default: 30 days). Identify items with no status updates in that window, products with no roadmap items, and roadmap entries that reference products not in the wiki.
 
 ### 7. Produce the report
 

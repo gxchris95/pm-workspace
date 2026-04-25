@@ -1,10 +1,11 @@
 ---
-skill: synthesize
-trigger: /synthesize
-phase: Synthesize
-inputs: [multiple intake cards, inbox/ items, wiki/ pages, raw/ sources]
-outputs: [synthesis report with themes, contradictions, gaps, recommendations]
-output_to: [wiki/ (updated pages), workspace/ (if new artifacts needed)]
+name: synthesize
+description: Find patterns, themes, contradictions, and gaps across multiple PM inputs (intake cards, inbox items, wiki pages, raw sources). Use this skill whenever the user asks to find patterns, look for themes, identify what's repeating, find what's contradictory across sources, or wants to make sense of multiple inputs at once — including phrases like "what's everyone saying about X", "pull this together", "synthesize", or "summarize across these".
+metadata:
+  phase: Synthesize
+  inputs: [multiple intake cards, inbox/ items, wiki/ pages, raw/ sources]
+  outputs: [synthesis report with themes, contradictions, gaps, recommendations]
+  output_to: wiki/ (updated pages); workspace/ (if new artifacts needed)
 ---
 
 # Synthesize — Find Patterns Across Signals
@@ -19,7 +20,7 @@ You have multiple inputs — intake cards, inbox items, wiki pages, raw sources 
 
 Read all specified sources. If no sources specified, default to:
 - All items in `inbox/`
-- Recent intake cards
+- Recent intake cards in `workspace/intake/`
 - Open items in `workspace/prds/`
 
 ### 2. Extract themes
@@ -77,7 +78,7 @@ Rank themes by signal strength:
 ### 6. Generate recommendations
 
 Prioritized list of actions. Each recommendation should be concrete:
-- "Update `wiki/products/genai-gateway.md` — latency section is stale, 3 sources contradict it"
+- "Update `wiki/products/<product>.md` — latency section is stale, 3 sources contradict it"
 - "Create PRD for X — 5 teams have asked, no product addresses this"
 - "Schedule decision: A vs B — two valid approaches, need PM call"
 

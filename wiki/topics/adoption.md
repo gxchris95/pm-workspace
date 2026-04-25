@@ -16,7 +16,6 @@ sources: []
 
 | Product | Status | Teams/Users | Trend | Notes |
 |---------|--------|------------|-------|-------|
-| | | | | |
 
 ## Key Insights
 

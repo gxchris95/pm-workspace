@@ -1,0 +1,27 @@
+{
+  "skill": "decision",
+  "should_trigger": [
+    "Record an ADR for choosing Postgres over DynamoDB.",
+    "Write a decision record for the auth migration.",
+    "Capture the decision we made about deprecating v1 of the API.",
+    "We need an ADR for this architecture choice.",
+    "Document why we picked React Query.",
+    "Log this decision: we're going with monthly billing.",
+    "Create a decision record for the multi-region rollout.",
+    "Write up the rationale for sunsetting feature X.",
+    "Capture what we agreed in the architecture review.",
+    "I need to record why we chose vendor A over B."
+  ],
+  "should_not_trigger": [
+    "Write a PRD for SSO.",
+    "Score these features with RICE.",
+    "Triage the inbox.",
+    "Summarize for the exec team.",
+    "Lint the wiki.",
+    "Run a retro.",
+    "Generate a competitive analysis.",
+    "What is everyone saying about pricing?",
+    "Build a prototype.",
+    "Stress-test this plan."
+  ]
+}

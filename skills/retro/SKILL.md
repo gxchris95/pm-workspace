@@ -1,10 +1,11 @@
 ---
-skill: retro
-trigger: /retro
-phase: Reflect
-inputs: [time period (sprint, month, quarter), wiki state, workspace/prds/ status, roadmap-timeline]
-outputs: [retrospective report]
-output_to: [workspace/retros/YYYY-MM-DD-retro.md]
+name: retro
+description: Generate a retrospective comparing planned vs. actual for a sprint, month, or quarter — with velocity numbers, root-cause analysis of slips, trends across periods, and concrete action items. Use this skill whenever the user asks for a retro, retrospective, postmortem, "what shipped" review, end-of-quarter summary, or wants to learn from execution patterns.
+metadata:
+  phase: Reflect
+  inputs: [time period (sprint, month, quarter), wiki state, workspace/prds/ status, roadmap-timeline]
+  outputs: [retrospective report]
+  output_to: workspace/retros/YYYY-MM-DD-retro.md
 ---
 
 # Retro — Retrospective on What Shipped vs. What Was Planned
@@ -17,7 +18,7 @@ End of a sprint, month, or quarter. Or when you want a clear-eyed look at execut
 
 ### 1. Define the period
 
-What time range are we reflecting on? Default to the current quarter if not specified.
+What time range are we reflecting on? Default to the current quarter if not specified. Use the quarter notation `Q<n> YYYY` (e.g., `Q1 2026`) per `AGENTS.md` conventions.
 
 ### 2. Read planned state
 
@@ -39,9 +40,9 @@ Check each item's actual status. Sources: wiki product pages, workspace PRDs, PM
 
 | Item | Planned | Actual | Delta |
 |------|---------|--------|-------|
-| [item] | Ship in Q1 | Shipped on time | ✅ On track |
-| [item] | Ship in Q1 | Slipped to Q2 | 🟡 Late |
-| [item] | Ship in Q1 | Not started | 🔴 Missed |
+| [item] | Ship in Q1 2026 | Shipped on time | ✅ On track |
+| [item] | Ship in Q1 2026 | Slipped to Q2 2026 | 🟡 Late |
+| [item] | Ship in Q1 2026 | Not started | 🔴 Missed |
 | [unplanned item] | Not planned | Shipped | 🔵 Unplanned win |
 ```
 

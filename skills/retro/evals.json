@@ -1,0 +1,27 @@
+{
+  "skill": "retro",
+  "should_trigger": [
+    "Run a retrospective on Q1.",
+    "What shipped vs. what was planned last sprint?",
+    "Generate a quarterly retro.",
+    "Postmortem the last release cycle.",
+    "End-of-quarter summary please.",
+    "Compare planned vs. actual for the month.",
+    "What did we learn from last quarter's execution?",
+    "Velocity report for the past sprint.",
+    "Retro the launch.",
+    "Reflect on what shipped this half."
+  ],
+  "should_not_trigger": [
+    "Write a PRD.",
+    "Score these initiatives with RICE.",
+    "Triage these notes.",
+    "Lint the wiki.",
+    "Build a prototype.",
+    "Compare us to Competitor X.",
+    "Summarize for the exec team.",
+    "Record a decision.",
+    "Stress-test this plan.",
+    "What is everyone saying about onboarding?"
+  ]
+}

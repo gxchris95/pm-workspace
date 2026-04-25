@@ -1,10 +1,11 @@
 ---
-skill: decision
-trigger: /decision
-phase: Specify
-inputs: [a question or choice that needs to be made, context from wiki/workspace]
-outputs: [decision record in workspace/decisions/]
-output_to: [workspace/decisions/<topic>.md]
+name: decision
+description: Structure a product decision with options, tradeoffs, recommendation, and consequences in ADR (Architecture Decision Record) format. Use this skill whenever the user faces a fork in the road, needs to choose between multiple valid options, asks "should we do A or B", wants to document a tradeoff, formalize a call so others can see the reasoning later, or asks to write a decision record / ADR.
+metadata:
+  phase: Specify
+  inputs: [a question or choice that needs to be made, context from wiki/workspace]
+  outputs: [decision record in workspace/decisions/]
+  output_to: workspace/decisions/<topic>.md
 ---
 
 # Decision — Structure and Document a Decision
@@ -30,11 +31,13 @@ Read relevant wiki pages and workspace artifacts. Understand the constraints, st
 ```markdown
 ---
 decision: [short title]
-status: Proposed | Accepted | Superseded | Deprecated
+status: Proposed
 date: YYYY-MM-DD
 deciders: [who has authority to make this call]
 informed: [who needs to know]
 sources: [wiki pages, intake cards, raw sources consulted]
+supersedes: [link to prior decision if applicable]
+superseded_by: [filled in later if this decision is reversed]
 ---
 
 # [Decision Title]
@@ -98,9 +101,24 @@ Before finalizing, explicitly check:
 
 Note any biases detected.
 
-### 5. File it
+### 5. File it as Proposed
 
-Save to `workspace/decisions/<topic>.md`. Decision records are **immutable once accepted** — if the decision is later reversed, create a new record that supersedes it (link to original).
+Save to `workspace/decisions/<topic>.md` with `status: Proposed`. Include a deadline for the decision.
+
+### 6. State transitions
+
+Decision records have a defined lifecycle. Apply transitions explicitly:
+
+| From | To | Action | What to update |
+|------|-----|--------|----------------|
+| Proposed | Accepted | Decider has approved | Set `status: Accepted`, set `accepted_date: YYYY-MM-DD`, append to `wiki/log.md` |
+| Accepted | Superseded | Reversed by a new decision | Set `status: Superseded`, set `superseded_by: [link]`. **Do not edit anything else** — the record is immutable once Accepted. The new decision links back via `supersedes:`. |
+| Accepted | Deprecated | No longer relevant but not reversed | Set `status: Deprecated`, add a `deprecated_reason:` field |
+| Proposed | Rejected | Not adopted | Set `status: Rejected`, keep file for reference |
+
+**Rule**: Once a decision is `Accepted`, treat the body as immutable. Reversals create a new decision with `supersedes:` pointing to the old one.
+
+When transitioning, ask the PM for explicit confirmation before flipping `Accepted` → `Superseded`.
 
 ## Tips
 

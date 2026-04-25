@@ -1,10 +1,11 @@
 ---
-skill: brief
-trigger: /brief
-phase: Communicate
-inputs: [topic, product, decision, or question + target audience]
-outputs: [audience-appropriate summary document]
-output_to: [workspace/briefs/<topic>.md]
+name: brief
+description: Generate audience-appropriate summaries (exec, eng, designer, partner team, broad stakeholders). Use this skill whenever the user asks for a summary, brief, update, exec one-pager, status note, or stakeholder communication — including phrases like "write this up for [audience]", "summarize for the leadership team", "I need a one-pager", or "draft a status update".
+metadata:
+  phase: Communicate
+  inputs: [topic, product, decision, or question + target audience]
+  outputs: [audience-appropriate summary document]
+  output_to: workspace/briefs/<topic>.md
 ---
 
 # Brief — Generate Audience-Appropriate Summary
@@ -33,17 +34,22 @@ Read relevant wiki pages, workspace artifacts, and raw sources. Build a complete
 
 ### 3. Write the brief
 
-#### Exec Brief (1 page max)
+Every brief has the same frontmatter; the body differs by audience.
 
-```markdown
+**Common frontmatter (all briefs):**
+```yaml
 ---
 brief: [topic]
-audience: Executive
+audience: Executive | Engineering | Designer | Partner | Broad
 date: YYYY-MM-DD
 author: [PM name]
 sources: [wiki pages, workspace docs consulted]
 ---
+```
 
+#### Exec Brief (1 page max)
+
+```markdown
 # [Topic] — Executive Brief
 
 ## TL;DR
@@ -65,7 +71,7 @@ What do you need from the reader? Be specific: approval, budget, headcount, deci
 Key milestones only. No sprint-level detail.
 ```
 
-#### Eng Brief
+#### Engineering Brief
 
 ```markdown
 # [Topic] — Engineering Brief

@@ -1,10 +1,11 @@
 ---
-skill: prd
-trigger: /prd
-phase: Specify
-inputs: [intake card, synthesis theme, or freeform description]
-outputs: [PRD draft in workspace/prds/]
-output_to: [workspace/prds/<product-name>-<feature>.md]
+name: prd
+description: Generate or review a Product Requirements Document. Use this skill whenever the user asks to write, draft, scope, spec, or review a PRD, product spec, or feature document. Generation mode produces a complete PRD with problem, solution, scope, requirements, dependencies, risks, timeline, and the SVPG four risks. Review mode produces a 10-dimension scorecard with specific gap callouts. Triggers also include "spec out X", "write requirements for", "review this PRD".
+metadata:
+  phase: Specify
+  inputs: [intake card, synthesis theme, or freeform description]
+  outputs: [PRD draft in workspace/prds/]
+  output_to: workspace/prds/<product-name>-<feature>.md
 ---
 
 # PRD — Generate or Review a Product Requirements Document
@@ -23,7 +24,6 @@ Scan `raw/roadmaps/` and `workspace/prds/` for format reference. Match the exist
 
 Read relevant wiki pages:
 - Product page (`wiki/products/<product>.md`) — status, capabilities, dependencies
-- Pillar page — strategic context
 - Roadmap timeline — where this fits
 - Dependencies page — external blockers
 
@@ -36,7 +36,7 @@ product: [which product this belongs to]
 author: [PM name]
 status: Draft
 created: YYYY-MM-DD
-target: [FY/Quarter]
+target: Q<n> YYYY
 sources: [intake cards, wiki pages, raw sources that informed this]
 ---
 
@@ -100,20 +100,20 @@ For every PRD, explicitly assess:
 
 ## Mode 2: Review an existing PRD
 
-Read the PRD. Check for:
+Read the PRD. Score across these 10 dimensions:
 
 1. **Completeness** — Is every section filled? Any "TBD" left unresolved?
 2. **Clarity** — Could an engineer start building from this? Could an exec understand the "why"?
 3. **Evidence** — Are claims backed by data, quotes, or intake cards? Or just assertions?
-4. **Scope creep** — Is the scope tight? Does every P0 item serve the problem statement?
+4. **Scope discipline** — Is the scope tight? Does every P0 item serve the problem statement?
 5. **Dependencies** — Are all dependencies identified? Are any blocked?
-6. **Risks** — Are risks realistic? Are mitigations concrete?
+6. **Risk coverage** — Are risks realistic? Are mitigations concrete?
 7. **Success metrics** — Are they measurable? Can we know if we succeeded?
-8. **Timeline** — Is it realistic given dependencies and resource pressure?
+8. **Timeline realism** — Is it realistic given dependencies and resource pressure?
 9. **Open questions** — Are they real blockers or avoidable with a decision?
-10. **SVPG four risks** — All four assessed?
+10. **SVPG four risks** — All four assessed (value, usability, feasibility, viability)?
 
-Output a review scorecard:
+Output the full 10-row scorecard:
 
 ```markdown
 ## PRD Review: [title]
@@ -128,6 +128,8 @@ Output a review scorecard:
 | Risk coverage | | |
 | Success metrics | | |
 | Timeline realism | | |
+| Open questions | | |
+| SVPG four risks | | |
 
 **Overall**: Ready / Needs revision / Major gaps
 

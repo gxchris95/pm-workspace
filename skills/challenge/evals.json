@@ -1,0 +1,27 @@
+{
+  "skill": "challenge",
+  "should_trigger": [
+    "Stress-test this go-to-market plan.",
+    "Poke holes in this PRD.",
+    "What's the strongest argument against this strategy?",
+    "Red-team our pricing decision.",
+    "Devil's advocate this proposal.",
+    "What could go wrong with this rollout?",
+    "Pre-mortem this launch.",
+    "Find the weakest assumption in this plan.",
+    "Push back on this approach.",
+    "Where would you attack this strategy?"
+  ],
+  "should_not_trigger": [
+    "Write a PRD.",
+    "Score these initiatives with RICE.",
+    "Summarize for the exec team.",
+    "Lint the wiki.",
+    "Triage this Slack thread.",
+    "Run a retrospective.",
+    "Compare us to Competitor X.",
+    "Build a prototype.",
+    "What is everyone saying about onboarding?",
+    "Record a decision."
+  ]
+}

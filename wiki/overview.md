@@ -12,17 +12,16 @@ It provides a portfolio-level executive synthesis. Delete this comment once the 
 
 [2-3 sentence summary of your portfolio: what it is, who it serves, current state.]
 
-## Product Groups
+## Products
 
-<!-- One section per product group/pillar. Example:
-
-### Platform
-Infrastructure and shared services that other products build on.
+<!-- Table of products in the portfolio. Example:
 
 | Product | Status | Adoption | Summary |
 |---------|--------|----------|---------|
 | Auth Service | Production | 12 teams | Centralized auth |
 | API Gateway | Production | 8 teams | Traffic management |
+| Mobile App | Beta | 4 teams | Customer-facing app |
+| Web Dashboard | Production | 20 teams | Internal admin tooling |
 
 -->
 

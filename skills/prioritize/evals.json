@@ -1,0 +1,27 @@
+{
+  "skill": "prioritize",
+  "should_trigger": [
+    "Help me rank these five initiatives.",
+    "Score this list with RICE.",
+    "What should I work on next quarter?",
+    "Prioritize this backlog.",
+    "Which of these features has the highest leverage?",
+    "Stack-rank these PRDs.",
+    "Build a priority matrix for these candidates.",
+    "What's the impact-vs-effort tradeoff here?",
+    "Pick the top 3 from this list.",
+    "Which initiatives should we cut?"
+  ],
+  "should_not_trigger": [
+    "Write the PRD for initiative X.",
+    "Summarize this for the exec team.",
+    "Triage these customer notes.",
+    "Run a retro on Q1.",
+    "What changed in the wiki this week?",
+    "Generate a competitive analysis.",
+    "Lint the wiki.",
+    "Draft a decision record.",
+    "Stress-test this plan.",
+    "Build a prototype."
+  ]
+}

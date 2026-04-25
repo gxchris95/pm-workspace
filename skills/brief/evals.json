@@ -1,0 +1,27 @@
+{
+  "skill": "brief",
+  "should_trigger": [
+    "Write this up for the leadership team.",
+    "Draft a one-pager for the VP.",
+    "I need a status update for the partner team.",
+    "Summarize this for the engineering leads.",
+    "Generate an executive brief on the launch.",
+    "Create a stakeholder update on the project.",
+    "Brief the design team on this work.",
+    "Write a status note for the cross-functional channel.",
+    "Make me an exec summary.",
+    "Communicate this to a non-technical audience."
+  ],
+  "should_not_trigger": [
+    "Write a PRD.",
+    "Score these initiatives with RICE.",
+    "Triage these notes.",
+    "Lint the wiki.",
+    "Build a prototype.",
+    "Run a retrospective.",
+    "Compare us to Competitor X.",
+    "Record a decision.",
+    "Stress-test this plan.",
+    "What is everyone saying about onboarding?"
+  ]
+}

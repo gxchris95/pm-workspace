@@ -1,6 +1,5 @@
 ---
 product: example-product
-pillar: [your group name]
 status: Production | Alpha | Beta | Coming Soon
 adoption: 0
 last_updated: YYYY-MM-DD

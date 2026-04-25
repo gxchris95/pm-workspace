@@ -1,10 +1,11 @@
 ---
-skill: prioritize
-trigger: /prioritize
-phase: Prioritize
-inputs: [intake cards, synthesis themes, existing backlog, strategic context]
-outputs: [scored and ranked requirements, priority recommendation]
-output_to: [workspace/prds/ (top items promoted to PRD drafts)]
+name: prioritize
+description: Score and rank PM requirements using modified RICE (Reach × Impact × Confidence × Strategic Alignment / Effort) or a custom framework. Use this skill whenever the user asks to prioritize, rank, sequence, score, bucket, or decide what to do first across a set of requirements, themes, or feature requests — including phrases like "what should we do first", "which of these matters most", or "help me sequence".
+metadata:
+  phase: Prioritize
+  inputs: [intake cards, synthesis themes, existing backlog, strategic context]
+  outputs: [scored and ranked requirements, priority recommendation]
+  output_to: workspace/prds/ (top items promoted to PRD drafts via /prd)
 ---
 
 # Prioritize — Score and Rank Requirements
@@ -18,14 +19,14 @@ You have a set of requirements, themes, or feature requests and need to decide w
 ### 1. Gather the items
 
 Collect all requirements to score. Sources:
-- Intake cards from `/intake`
+- Intake cards from `/intake` (in `workspace/intake/`)
 - Themes from `/synthesize`
 - Items pasted directly by the PM
 - Existing items in `workspace/prds/` (if re-prioritizing)
 
 ### 2. Establish the scoring framework
 
-Default: **modified RICE** (Reach, Impact, Confidence, Effort) scaled to PM context.
+Default: **modified RICE** (Reach, Impact, Confidence, Effort) extended with Strategic Alignment.
 
 | Dimension | Scale | What it measures |
 |-----------|-------|-----------------|
@@ -37,7 +38,9 @@ Default: **modified RICE** (Reach, Impact, Confidence, Effort) scaled to PM cont
 
 **Score = (Reach × Impact × Confidence × Strategic Alignment) / Effort**
 
-The PM can override the framework. Ask: "Use RICE, impact/effort, or a custom framework?"
+> Note: This is a 5-axis modification of standard RICE (R×I×C/E). The 5th axis (Strategic Alignment) is added because PM portfolio prioritization is dominated by alignment with leadership priorities. If the PM prefers standard RICE, drop Strategic Alignment from the formula.
+
+The PM can override the framework. Ask: "Use modified RICE, standard RICE, impact/effort, or a custom framework?"
 
 ### 3. Score each item
 
@@ -48,7 +51,7 @@ For each requirement:
 
 | Dimension | Score | Rationale |
 |-----------|-------|-----------|
-| Reach | 3 | Affects ~15 teams across 2 pillars |
+| Reach | 3 | Affects ~15 teams across multiple products |
 | Impact | 4 | Removes a daily pain point |
 | Confidence | 3 | 3 intake sources, no quantitative data |
 | Effort | 4 | 2 sprints, cross-team dependency |

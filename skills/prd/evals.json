@@ -1,0 +1,27 @@
+{
+  "skill": "prd",
+  "should_trigger": [
+    "Write a PRD for the new SSO integration.",
+    "Draft a product spec for mobile push.",
+    "Turn this requirement card into a PRD.",
+    "Create a product brief for the pricing redesign.",
+    "We approved this initiative — write the PRD.",
+    "Spec out the new admin dashboard.",
+    "Generate a requirements doc for the audit log feature.",
+    "Write the PRD for v2 of the search experience.",
+    "I need a PRD for the API gateway migration.",
+    "Draft a one-pager spec for the onboarding rework."
+  ],
+  "should_not_trigger": [
+    "Triage this Slack thread.",
+    "Summarize the roadmap for the VP.",
+    "Score these initiatives with RICE.",
+    "Run a retrospective on last quarter.",
+    "Compare us to Competitor X.",
+    "Lint the wiki.",
+    "Stress-test this plan.",
+    "Record a decision.",
+    "Generate an executive brief.",
+    "What's everyone saying about onboarding?"
+  ]
+}

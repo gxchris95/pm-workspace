@@ -1,0 +1,30 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/mcp-config.json",
+  "_comment": "Example MCP configuration for the PM workspace. Copy to .mcp.json (gitignored) and fill in your own paths/keys. See https://modelcontextprotocol.io for the full spec.",
+  "mcpServers": {
+    "filesystem": {
+      "_comment": "Local filesystem access for the workspace itself. Lets the agent read raw/, wiki/, and workspace/ as MCP resources rather than via Read tool.",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/this/pm-workspace"
+      ]
+    },
+    "memory": {
+      "_comment": "Optional: persistent memory across sessions for facts the agent learns about your portfolio.",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "fetch": {
+      "_comment": "Optional: lets the agent fetch URLs the PM pastes (e.g., competitor docs, public RFCs).",
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    },
+    "search": {
+      "_comment": "Optional: search across raw/ and wiki/ as a vector or keyword index. Replace with your preferred MCP search server (e.g., qdrant, sqlite-fts).",
+      "command": "REPLACE_WITH_YOUR_SEARCH_SERVER_COMMAND",
+      "args": []
+    }
+  }
+}

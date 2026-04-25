@@ -1,220 +1,106 @@
-# [Your Domain] — PM Workspace Schema
+# [Your Domain] — PM Workspace Operating Manual
 
-This is the schema file for your PM workspace. It tells any LLM agent how this workspace is structured, what conventions to follow, and what workflows to execute.
+This file is the entry point for any LLM agent (Claude Code, Cursor, etc.) working in this workspace. Keep it short. Detailed conventions live in `wiki/conventions.md` and skill files live in `skills/<skill>/SKILL.md`.
 
 ## Who this is for
 
-This workspace is maintained for a **Product Manager** who owns [describe your portfolio — e.g., "the AI Platform product suite"]. It is a persistent, compounding knowledge base and PM toolkit that synthesizes product documentation, executive communications, roadmaps, governance frameworks, adoption data, and strategic analysis into a navigable, cross-referenced resource — plus active workflows for day-to-day product management.
+A **Product Manager** who owns [describe your portfolio]. The workspace is a persistent, compounding knowledge base plus an active PM toolkit.
 
-## Six-layer architecture
-
-```
-inbox/          → Signal queue: raw, unprocessed inputs (transient)
-  ↓ skills/
-raw/            → Reference library: curated source documents (permanent)
-wiki/           → Knowledge base: synthesized, cross-linked (compounding)
-workspace/      → Active artifacts: PRDs, decisions, briefs (lifecycle)
-skills/         → AI workflows: reusable PM process skills (this layer)
-```
-
-### Layer 1: Inbox — Signal queue (`inbox/`)
-
-Unprocessed inputs waiting to be triaged. Drop items here, run skills to process, then move or delete. **inbox/ is not raw/** — it's a transient processing queue.
-
-Structure: `inbox/{slack, jira, meetings, surveys, feedback}/`
-
-Naming: `YYYY-MM-DD-<short-description>.md`
-
-### Layer 2: Raw sources (`raw/`)
-
-Raw sources are immutable inputs. The LLM reads from them but never modifies them.
-
-| Location | Contents |
-|----------|----------|
-| `raw/exec-comms/` | Board decks, leadership Q&As, strategy docs |
-| `raw/roadmaps/` | PRDs, roadmap documents, sprint plans |
-| `raw/customer/` | Customer calls, feedback, support tickets |
-| `raw/engineering/` | Architecture docs, tech specs, ADRs |
-| `raw/governance/` | Policies, compliance, security frameworks |
-| `raw/metrics/` | Adoption data, dashboards, value analyses |
-| `raw/notes/` | Meeting notes, Slack threads, clipped web pages |
-
-When ingesting, always note which raw source(s) informed a wiki page update. Some inbox/ items graduate to raw/ when worth keeping permanently.
-
-### Layer 3: The wiki (`wiki/`)
-
-All LLM-generated and LLM-maintained pages live under `wiki/`. The LLM owns this directory entirely. Structure:
+## Architecture (six layers)
 
 ```
-wiki/
-├── index.md                    # Master index of all wiki pages
-├── log.md                      # Chronological operation log
-├── overview.md                 # Portfolio-level synthesis
-├── products/                   # One page per product
-├── pillars/                    # Group-level summaries (optional)
-├── topics/                     # Cross-cutting concerns
-│   ├── adoption.md
-│   ├── dependencies.md
-│   ├── roadmap-timeline.md
-│   └── ...
-└── stakeholders/
-    └── teams.md                # Teams, customers, external dependencies
+inbox/      → transient signal queue (raw input awaiting triage)
+raw/        → permanent source library (immutable inputs)
+wiki/       → synthesized knowledge base (LLM-owned, compounding)
+workspace/  → live artifacts with a lifecycle (PRDs, decisions, briefs, prototypes, retros)
+skills/     → reusable AI workflows (one folder per skill, SKILL.md inside)
+AGENTS.md   → this file
 ```
 
-### Layer 4: This file (AGENTS.md)
+Read `wiki/conventions.md` for the full layer reference, page conventions, frontmatter rules, cross-referencing patterns, and output formats.
 
-This schema governs all LLM behavior across the workspace. Co-evolve it with the PM as conventions change.
+## Skills (commands)
 
-### Layer 5: Skills (`skills/`)
+When the PM invokes a skill by name (e.g. `/intake`, `/prd`, `/lint`), read `skills/<skill>/SKILL.md` and follow its process. If no skill matches the request, answer directly using the wiki as context.
 
-Reusable AI workflows for product management — intake, synthesis, prioritization, PRD generation, adversarial review, and more. Governed by `skills/SCHEMA.md`. Each skill is a markdown file the LLM follows when invoked by trigger name (e.g., `/intake`, `/synthesize`).
+| Phase | Skill | Use when |
+|-------|-------|----------|
+| Discover | `/intake` | Raw signal needs triage (Slack, Jira, calls, surveys) |
+| Discover | `/competitive` | Need market or competitor benchmark |
+| Synthesize | `/synthesize` | Cluster scattered signal into themes |
+| Decide | `/prioritize` | Rank initiatives (5-axis modified RICE) |
+| Decide | `/decision` | Capture an ADR-style decision record |
+| Define | `/prd` | Author or refine a product requirements doc |
+| Validate | `/challenge` | Stress-test plan, pre-mortem, red-team |
+| Validate | `/prototype` | Build a quick HTML prototype to pressure-test ideas |
+| Validate | `/roadmap-check` | Surface slips, conflicts, blockers, alignment gaps |
+| Communicate | `/brief` | Audience-tailored summary (exec, eng, designer, partner) |
+| Reflect | `/retro` | Compare planned vs. actual; learn |
+| Maintain | `/lint` | Wiki + workspace health check |
 
-Skills connect layers: they process inbox/ items, update wiki/ pages (via this file's workflows), create workspace/ artifacts, and file permanent sources to raw/.
+Full catalog and routing rules: `skills/SCHEMA.md`.
 
-See `skills/SCHEMA.md` for the full skill catalog, format, and sprint flow.
+## Core workflows
 
-### Layer 6: Workspace — Active artifacts (`workspace/`)
-
-Live work products being actively worked on. Unlike wiki/ (permanent knowledge) or raw/ (permanent reference), workspace items have a lifecycle: created → refined → shipped → archived.
-
-Structure: `workspace/{prds, decisions, briefs, prototypes, retros}/`
-
----
-
-## Page conventions
-
-### Product pages (`wiki/products/*.md`)
-
-Every product page follows the template in `wiki/products/_template.md`. Required frontmatter: `product`, `pillar`, `status`, `adoption`, `last_updated`, `sources`. Required sections: Summary, Status & Maturity, Key Capabilities, Adoption, Dependencies, Roadmap, Open Questions, Sources.
-
-### Pillar / group pages (`wiki/pillars/*.md`)
-
-Synthesize across all products in the group. Include: narrative summary, product table with status, group-level metrics, strategic direction, cross-product dependencies.
-
-### Topic pages (`wiki/topics/*.md`)
-
-Cross-cutting analysis pages. Each should synthesize information from multiple products and sources. Include frontmatter with `topic:`, `last_updated:`, `sources:`.
-
-### Index (`wiki/index.md`)
-
-Master catalog. Every wiki page listed with a one-line summary. Organized by section. Updated on every ingest or page creation. The LLM reads this first when answering queries.
-
-### Log (`wiki/log.md`)
-
-Append-only chronological record. Each entry:
-```markdown
-## [YYYY-MM-DD] <operation> | <subject>
-<brief description of what was done>
-Pages touched: <list>
-```
-
-Operations: `ingest`, `query`, `lint`, `update`, `create`.
-
----
-
-## Workflows
-
-### Skill routing
-
-When the PM's request matches a skill trigger, read the corresponding skill file in `skills/` and follow its process instead of answering ad-hoc. See `skills/SCHEMA.md` for the full skill catalog, routing table, and sprint flow.
-
-If no skill matches, answer directly using the wiki as context.
-
-### Ingest a new source
-
-1. Read the source completely.
+### Ingest a source
+1. Read the raw source completely.
 2. Discuss key takeaways with the PM.
-3. Create or update relevant wiki pages (products, topics, pillars).
+3. Update relevant wiki pages (products, topics).
 4. Update `wiki/index.md` if new pages were created.
 5. Append an entry to `wiki/log.md`.
-6. Note any contradictions with existing wiki content and flag them.
+6. Flag contradictions with existing wiki content.
 
 ### Answer a query
-
 1. Read `wiki/index.md` to identify relevant pages.
 2. Read those pages.
-3. Synthesize an answer with citations to wiki pages and raw sources.
-4. If the answer is substantial and reusable, offer to file it as a new wiki page.
+3. Synthesize with citations to wiki pages and raw sources.
+4. Offer to file substantial reusable answers as new wiki pages.
 
-### Lint / health check
+### Health check
+Run `/lint` weekly or after major ingests. See `skills/lint/SKILL.md`.
 
-Run periodically. Check for:
-- Contradictions between pages
-- Stale information (newer sources supersede older claims)
-- Missing cross-references (product X mentions product Y but no link)
-- Products mentioned in sources but lacking a wiki page
-- Orphan pages with no inbound links
-- Gaps: important topics not yet covered
-- Roadmap items past their target date (check against current date)
+## Thresholds (single source of truth)
 
----
+These thresholds are referenced by skills. Tune to taste.
 
-## Cross-referencing conventions
+| Check | Threshold |
+|-------|-----------|
+| Stale wiki page | 30 days since `last_updated` |
+| Stale draft PRD | 30 days since `created` with `status: Draft` |
+| Stale proposed decision | 14 days since `date` with `status: Proposed` |
+| Stale inbox item | 7 days unprocessed |
+| PRD maximum length | 2 pages |
+| Exec brief maximum length | 1 page |
 
-- Use `[[wiki-style links]]` for Obsidian compatibility: `[[products/your-product]]`
-- Every product page should link to its pillar page and vice versa.
-- Every dependency should be a bidirectional link.
-- Topic pages should link to all relevant product pages.
-- When a product is mentioned on any page, link to its product page.
+## Naming conventions
 
-## Frontmatter
-
-All wiki pages use YAML frontmatter. Minimum fields:
-- `last_updated: YYYY-MM-DD`
-- `sources: []` (list of raw source files)
-
-Product pages add: `product`, `pillar`, `status`, `adoption`.
-Topic pages add: `topic`.
-
-## Output formats
-
-The PM may request different output formats:
-- **Markdown page** (default): filed into wiki
-- **Comparison table**: for product vs. product or option analysis
-- **Executive brief**: 1-page summary with key metrics and decisions needed
-- **Slide deck (Marp)**: for presentations — use `---` slide separators and Marp frontmatter
-- **Timeline**: chronological view of roadmap items across products
-
-## Key product taxonomy
-
-<!-- Fill this in with your products. Example:
-
-| Group | Product | Status |
-|-------|---------|--------|
-| Platform | Auth Service | Production |
-| Platform | API Gateway | Production |
-| Consumer | Mobile App | Beta |
-| Consumer | Web Dashboard | Production |
-
--->
-
-| Group | Product | Status |
-|-------|---------|--------|
-| | | |
-
----
+- Quarter notation: `Q<n> YYYY` (e.g., `Q1 2026`)
+- Date format: ISO `YYYY-MM-DD`
+- Inbox files: `YYYY-MM-DD-<short>.md`
+- Workspace files: `YYYY-MM-DD-<topic>.md`
+- Wiki product pages: lowercase, hyphenated (`auth-service.md`)
+- Wiki cross-references: `[[wiki-style]]` (e.g., `[[products/auth-service]]`)
 
 ## Voice
 
-Direct, concrete, specific. Name the product, the metric, the team, the date. No filler. Short paragraphs. End with what to do next.
-
-When asking questions, provide context, the question, a recommendation, and options. Consistent format across all skills and ad-hoc work.
+Direct, concrete, specific. Name the product, the metric, the team, the date. No filler. Short paragraphs. End with what to do next. When asking questions, provide context + question + recommendation + options.
 
 ## Completion status
 
-When finishing a skill or major workflow, report status:
+When finishing a skill or workflow, report:
 
-- **DONE** — All steps completed. Evidence provided.
-- **DONE_WITH_CONCERNS** — Completed, but with issues the PM should know about. List each concern.
+- **DONE** — Completed. Evidence provided.
+- **DONE_WITH_CONCERNS** — Completed with issues to flag.
 - **BLOCKED** — Cannot proceed. State what is blocking and what was tried.
 - **NEEDS_CONTEXT** — Missing information. State exactly what is needed.
 
-## Operational self-improvement
+## Self-improvement
 
-After major operations (ingests, lint passes, skill runs), reflect:
-- Did anything contradict existing wiki content?
-- Did any source lack sufficient detail to update confidently?
-- Were there wiki pages that should exist but don't?
-- Did the operation reveal a gap in this schema?
+After major operations, reflect: contradictions found, sources lacking detail, missing wiki pages, schema gaps. Log observations in `wiki/log.md`. If schema changes are needed, propose them.
 
-Log observations in `wiki/log.md` alongside the operation entry. If a schema change is needed, propose it to the PM.
+## See also
+
+- `wiki/conventions.md` — full layer reference, frontmatter, cross-referencing
+- `skills/SCHEMA.md` — skill catalog and sprint flow
+- `wiki/index.md` — master catalog of all wiki pages
+- `CLAUDE.md` — Claude Code entry point (also valid for other agents reading AGENTS.md)

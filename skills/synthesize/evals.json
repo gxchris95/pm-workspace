@@ -1,0 +1,27 @@
+{
+  "skill": "synthesize",
+  "should_trigger": [
+    "What is everyone saying about onboarding friction?",
+    "Pull together what we know about API rate limits.",
+    "Synthesize the customer feedback on pricing.",
+    "What patterns are showing up across the inbox?",
+    "Cluster these support tickets by theme.",
+    "What's the consensus on dark mode requests?",
+    "Summarize what we've heard from the last three customer councils.",
+    "What signals point to needing a new mobile app?",
+    "Combine the survey results with the Slack threads on this topic.",
+    "Find the through-line across these scattered notes."
+  ],
+  "should_not_trigger": [
+    "Process this single Jira ticket.",
+    "Write a PRD.",
+    "Compare us to two competitors.",
+    "Score these features with RICE.",
+    "Run a roadmap health check.",
+    "Generate an executive brief.",
+    "Stress-test this plan.",
+    "Lint the wiki.",
+    "Build a prototype.",
+    "Record a decision."
+  ]
+}

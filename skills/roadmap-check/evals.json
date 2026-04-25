@@ -1,0 +1,27 @@
+{
+  "skill": "roadmap-check",
+  "should_trigger": [
+    "How is the roadmap looking?",
+    "What's slipping?",
+    "Run a roadmap health check.",
+    "Validate the timeline before our planning meeting.",
+    "Check the roadmap for slips and conflicts.",
+    "Are we on track for Q2?",
+    "What's blocked on the roadmap right now?",
+    "Audit the roadmap.",
+    "Surface roadmap risks.",
+    "What roadmap items are stale?"
+  ],
+  "should_not_trigger": [
+    "Write a PRD.",
+    "Score these features with RICE.",
+    "Triage the inbox.",
+    "Summarize for the exec team.",
+    "Build a prototype.",
+    "Compare us to Competitor X.",
+    "Record a decision.",
+    "What is everyone saying about pricing?",
+    "Stress-test this plan.",
+    "Lint the wiki."
+  ]
+}

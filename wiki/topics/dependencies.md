@@ -16,7 +16,6 @@ sources: []
 
 | Dependency | Owner | Blocking | Status | Notes |
 |-----------|-------|----------|--------|-------|
-| | | | | |
 
 ## Open Blockers
 

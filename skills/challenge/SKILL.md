@@ -1,10 +1,11 @@
 ---
-skill: challenge
-trigger: /challenge
-phase: Validate
-inputs: [PRD, proposal, plan, roadmap item, or any artifact claiming to solve a problem]
-outputs: [challenge report with identified weaknesses, questions, and recommendations]
-output_to: [inline feedback — not a separate file unless requested]
+name: challenge
+description: Adversarial "red team" review of a PRD, proposal, plan, or assumption. Stress-tests the problem framing, solution scope, and the SVPG four risks (value, usability, feasibility, viability). Use this skill whenever the user wants to pressure-test something, find weaknesses, hear devil's advocate, get pushback, or stress-test before committing — including phrases like "poke holes in this", "what could go wrong", "tear this apart", or "challenge my assumptions".
+metadata:
+  phase: Validate
+  inputs: [PRD, proposal, plan, roadmap item, or any artifact claiming to solve a problem]
+  outputs: [challenge report with identified weaknesses, questions, and recommendations]
+  output_to: inline (no file written unless the user requests one in workspace/briefs/)
 ---
 
 # Challenge — Adversarial Review
@@ -12,8 +13,6 @@ output_to: [inline feedback — not a separate file unless requested]
 ## When to use
 
 You have a PRD, proposal, plan, or assumption that needs stress-testing before committing resources. This is the "red team" skill — its job is to find problems, not to be encouraging.
-
-Inspired by gstack's `/plan-ceo-review` (challenge scope, reframe the problem) and Marty Cagan's four risks.
 
 ## Process
 

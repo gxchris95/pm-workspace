@@ -1,0 +1,27 @@
+{
+  "skill": "lint",
+  "should_trigger": [
+    "Lint the wiki.",
+    "Run a health check on the workspace.",
+    "Find inconsistencies in the wiki.",
+    "Check for stale pages.",
+    "Audit the wiki for contradictions.",
+    "Weekly maintenance check please.",
+    "Are there any orphan pages?",
+    "Validate frontmatter compliance.",
+    "What's gone stale since the last ingest?",
+    "Surface any wiki issues that need attention."
+  ],
+  "should_not_trigger": [
+    "Write a PRD.",
+    "Score these initiatives with RICE.",
+    "Triage the inbox.",
+    "Build a prototype.",
+    "Compare us to Competitor X.",
+    "Run a retrospective.",
+    "Summarize for the exec team.",
+    "Record a decision.",
+    "Stress-test this plan.",
+    "What is everyone saying about onboarding?"
+  ]
+}

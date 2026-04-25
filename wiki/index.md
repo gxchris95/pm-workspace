@@ -14,16 +14,6 @@ Master catalog of all wiki pages. Read this first when searching for information
 |------|---------|
 | [[overview]] | Executive synthesis of the full portfolio — groups, strategy, metrics, and current state |
 
-## Group Summaries
-
-<!-- Add one row per product group/pillar. Example:
-| [[pillars/platform]] | Platform group: infrastructure, APIs, shared services |
--->
-
-| Page | Summary |
-|------|---------|
-| | |
-
 ## Products
 
 <!-- Add one row per product. Example:
@@ -32,7 +22,6 @@ Master catalog of all wiki pages. Read this first when searching for information
 
 | Page | Status | Adoption | Summary |
 |------|--------|----------|---------|
-| | | | |
 
 ## Cross-Cutting Topics
 

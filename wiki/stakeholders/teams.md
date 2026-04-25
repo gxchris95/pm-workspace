@@ -11,16 +11,13 @@ sources: []
 
 | Team | Role | Key Contact | Products |
 |------|------|-------------|----------|
-| | | | |
 
 ## Customers / Consumers
 
 | Team / Org | Products Used | Notes |
 |-----------|--------------|-------|
-| | | |
 
 ## External Dependencies
 
 | Owner | Dependency | Status | Notes |
 |-------|-----------|--------|-------|
-| | | | |
