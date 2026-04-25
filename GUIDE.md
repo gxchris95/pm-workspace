@@ -1,154 +1,176 @@
-# The PM Workspace Pattern
+# PM Workspace — Guide
 
-A guide for product managers who want to build persistent, compounding knowledge bases with LLMs.
+A workspace for the day-to-day work of being a product manager — *and* a knowledge base that gets smarter every time you use it.
 
-This document is for you, the PM. Read it to understand the pattern, then hand `AGENTS.md` to your LLM agent. You bring the judgment and the sources. The agent builds and maintains everything else.
+You bring sources and judgment. The LLM runs the recurring workflows (intake, PRDs, decisions, briefs, retros) and maintains the wiki. You review and direct.
 
-Based on the [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern by Andrej Karpathy.
+Based on the [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern by Andrej Karpathy, extended into a full PM operating system.
 
-## The core idea
+## The problem
 
-Product managers accumulate knowledge constantly — PRDs, exec decks, customer calls, Slack threads, meeting notes, competitive intel, adoption data, architecture docs. This knowledge is scattered across tools, conversations, and your own memory. When you need to prep for an exec review or answer a stakeholder question, you're re-synthesizing from scratch every time.
+PMs do two kinds of work, and both leak.
 
-Most "AI over documents" tools don't solve this. NotebookLM, ChatGPT file uploads, and RAG systems retrieve relevant chunks at query time, but the LLM is rediscovering connections from scratch on every question. Nothing accumulates.
+**Recurring workflows.** Triage a Slack thread. Write a PRD. Capture a decision. Score initiatives. Draft an exec brief. Run a retro. Stress-test a plan. Each task has a known shape — but you reinvent the format every time, quality is inconsistent, and good outputs vanish into chat history or a one-off Google Doc.
 
-The idea here is different. Instead of retrieving from raw documents, the LLM **incrementally builds and maintains a persistent wiki** — a structured, interlinked set of markdown files that sits between you and the raw sources. When you add a new document, the LLM doesn't just index it. It reads it, extracts what matters, and **integrates it into the existing wiki** — updating product pages, revising a roadmap timeline, flagging where new data contradicts an old claim, linking a dependency that wasn't connected before.
+**Compounding context.** PRDs, exec decks, customer calls, meeting notes, competitive intel, adoption data — knowledge accumulates constantly but stays scattered across tools and your own memory. Every stakeholder question, every exec prep, you re-synthesize from scratch. Wikis and Notion databases die because the maintenance burden outgrows the value.
 
-**The wiki is a persistent, compounding artifact.** The cross-references are already there. The contradictions have already been flagged. The synthesis already reflects everything you've fed it. It gets richer with every source you add and every question you ask.
+ChatGPT uploads, NotebookLM, and RAG systems solve neither. They retrieve at query time and forget after the session. Nothing accumulates. Nothing standardizes. Output formats drift.
 
-You never write the wiki yourself. The LLM does the summarizing, cross-referencing, filing, and bookkeeping. You curate sources, direct attention, and ask the right questions. In practice: LLM agent on one side of your screen, Obsidian on the other. The LLM edits, you browse in real time.
+## The pattern
 
-## Why this fits PMs
+A workspace that does two things at once, and lets each one make the other better.
 
-PMs sit at the intersection of strategy, execution, and communication:
+**Skills run the daily work.** A library of structured workflows — `/intake`, `/prd`, `/decision`, `/prioritize`, `/brief`, `/challenge`, `/prototype`, `/competitive`, `/roadmap-check`, `/retro`, `/lint` — that the LLM follows when you invoke them by name. Same shape every time. Outputs land in the right folder with the right frontmatter, ready to share or revisit.
 
-- **Synthesize across sources.** Connect a customer request to a roadmap item to a dependency to an exec priority. The wiki maintains these connections persistently.
-- **Track the state of many things at once.** A dozen products, their statuses, who's adopting, what's blocked, what's next. Standardized product pages give you a consistent portfolio view.
-- **Prepare for conversations fast.** An exec asks about readiness. A stakeholder wants adoption numbers. The wiki is always ready because the LLM kept it current.
-- **Spot contradictions.** The roadmap says Q2 but the dependency owner said Q3. The adoption page says [X] teams but the exec deck says [Y]. The LLM catches these during ingest.
+**The wiki compounds.** Every ingested source, every skill run feeds a persistent, cross-linked knowledge base — product pages, topic pages, a roadmap timeline, an index, a log. The LLM reads new material, integrates it into existing pages, flags contradictions, and keeps the synthesis current. You never write the wiki yourself.
 
-PMs abandon wikis and Notion databases because the maintenance burden grows faster than the value. Stale becomes untrustworthy, untrustworthy becomes unused. LLMs change the economics — they don't get bored, don't forget to update a cross-reference, and can touch 15 files in one pass. **The human curates and decides. The LLM does everything else.**
+**The two reinforce each other.** The wiki gives skills the context they need — the latest roadmap, current adoption, the most recent decision. Skill outputs feed the wiki — a new PRD updates the product page, a decision updates the dependency map. Daily work and long-term knowledge stop competing for your attention.
 
-## Architecture
+You curate sources, invoke skills, and direct attention. The LLM does the rest.
 
-The workspace has six layers. Start with the first three; add the rest when you're ready.
+In practice: LLM agent on one side of your screen, Obsidian on the other. The LLM edits, you watch.
 
-### The knowledge base (start here)
+## The five layers
 
-**Raw sources** (`raw/`) — your curated inputs. PRDs, exec decks, meeting notes, customer feedback, Slack threads, architecture docs. Immutable — the LLM reads but never modifies. This is your source of truth.
+Two are about knowledge. Three are about workflow. Start with the first two; add the rest when ready.
 
-**The wiki** (`wiki/`) — LLM-generated markdown files. Product pages, portfolio summaries, topic analyses, a timeline, a stakeholder map, an index, a log. The LLM owns this entirely. You read it; the LLM writes it.
+### Knowledge layers
 
-**The schema** (`AGENTS.md`) — a configuration file that tells the LLM how the wiki is structured, what templates to follow, what workflows to execute. This is what makes the LLM a disciplined wiki maintainer rather than a generic chatbot. You and the LLM co-evolve this over time as you figure out what works for your domain.
+| Layer | Role | Who writes |
+|-------|------|------------|
+| `raw/` | **Source of truth.** PRDs, decks, transcripts, customer notes, architecture docs. Immutable. | You curate. LLM reads only. |
+| `wiki/` | **Synthesis.** Product pages, topic pages, timeline, index, log. Compounding. Working draft, not source of truth. | LLM owns. You browse. |
 
-### The workflow layers (add when ready)
+### Workflow layers (add when ready)
 
-**Inbox** (`inbox/`) — a transient signal queue. Drop Slack threads, meeting notes, Jira exports here. Run skills to process them, then move or delete. inbox/ is not raw/ — it's a processing queue, not a reference library.
+| Layer | Role | Lifecycle |
+|-------|------|-----------|
+| `inbox/` | **Processing queue** for messy signal (Slack threads, meeting notes, Jira exports) before it's triaged. | Arrives → `/intake` → routed → deleted. |
+| `workspace/` | **Active artifacts:** PRDs, decisions, briefs, prototypes, retros. | Created → refined → shipped → archived. |
+| `skills/` | **Reusable workflows** the LLM follows when invoked by name (e.g. `/intake`, `/prd`, `/lint`). | Stable. You invoke; LLM executes. |
 
-**Skills** (`skills/`) — reusable AI workflows. Structured, multi-step processes: intake, synthesis, prioritization, PRD generation, adversarial review, competitive analysis, exec briefs, retros. Each skill is a markdown file the LLM follows when you invoke it by name (e.g., `/intake`, `/prd`). Skills connect all layers: they process inbox/ items, update wiki/ pages, and create workspace/ artifacts.
+Plus one configuration file:
 
-**Workspace** (`workspace/`) — active work products. PRDs, decision records, exec briefs, prototypes, retrospectives. Unlike wiki/ (permanent knowledge) or raw/ (permanent reference), workspace items have a lifecycle: created → refined → shipped → archived.
+- **`AGENTS.md`** — the operating manual. Tells any LLM agent how this workspace is structured and what conventions to follow. Co-evolve it as you learn what works for your domain.
+
+### raw vs. inbox — the distinction that matters
+
+This trips people up. Both hold "input documents." They are not the same.
+
+- **`raw/`** is the **permanent reference library.** Curated, immutable. Source of truth. Things that are worth re-reading.
+- **`inbox/`** is the **transient signal queue.** Messy, in-flight. Things that need to be triaged and then either filed (graduate to `raw/`), turned into a workspace artifact, or discarded.
+
+When in doubt: if you'd want to find this document in six months, it goes to `raw/`. If it's a fresh thread you need to process, it goes to `inbox/`.
 
 ## Three core operations
 
 ### Ingest
-
-Drop a new source into `raw/` and tell the LLM to process it. It reads the source, discusses takeaways with you, then updates every relevant wiki page — products, topics, timeline, index, log. A single exec deck might touch 10-15 pages.
-
-Stay hands-on at first. Read the summaries, check the updates, guide the LLM on what to emphasize. Batch later once you trust the output.
+Drop a source into `raw/` (or process an `inbox/` item). The LLM reads it, discusses takeaways with you, then updates every relevant wiki page — products, topics, timeline, index, log. One exec deck might touch 10–15 pages.
 
 ### Query
-
-Ask questions. The LLM reads the index, drills into relevant pages, synthesizes an answer with citations. Answers can take different forms — a markdown page, a comparison table, an exec brief, a timeline.
-
-**File good answers back into the wiki.** The comparison you asked for, the dependency analysis, the exec brief — these are valuable and shouldn't disappear into chat history. Your explorations compound in the knowledge base just like ingested sources do.
+Ask anything. The LLM reads `wiki/index.md` first to find relevant pages, drills in, synthesizes an answer with citations. File good answers back into the wiki — they compound.
 
 ### Lint
+Periodic health-check. Contradictions, stale claims, orphan pages, missed roadmap dates, unanswered open questions. Run weekly or after major ingests.
 
-Periodically health-check the wiki. Look for: contradictions between pages, stale claims that newer sources have superseded, orphan pages with no inbound links, roadmap items past their target date, open questions now answered.
+## Quick start (5 minutes)
 
-The LLM is good at suggesting new questions to investigate and new sources to look for. This keeps the wiki healthy as it grows.
+1. **Copy this folder** to a new location. Rename it to your domain (e.g. `ai-platform-wiki/`).
+2. **Edit `AGENTS.md`** — fill in the `[brackets]`: your portfolio, your products, the raw subfolders you want.
+3. **Drop 3–5 foundational sources** into `raw/`. The current roadmap. The latest exec deck. A recent customer-research summary. Authoritative, current docs.
+4. **Open in your LLM agent** (Claude Code, Cursor, etc.) and say: *"Read AGENTS.md. Read all sources in raw/. Build the initial wiki."*
+5. **Review the output.** Read the new wiki pages. Correct what's wrong. Trust builds from here.
 
-## What this looks like in practice
+From now on: drop new sources → ingest → query → lint → repeat. Use skills when you need structured workflows.
 
-You come back from a meeting where the engineering lead said the authentication service slips from Q1 to Q2. You drop meeting notes into `raw/notes/` and tell the LLM to ingest.
+## A day in the life
+
+You come back from a meeting where the eng lead said the auth service slips Q1 → Q2.
+
+You drop the meeting notes into `inbox/meetings/2026-04-10-eng-sync.md` and say *"run /intake on this."*
 
 The LLM:
-1. Updates `wiki/products/auth-service.md` — changes roadmap from Q1 to Q2.
-2. Updates `wiki/topics/roadmap-timeline.md` — shifts the row.
-3. **Flags a contradiction**: the group page still says "Auth and billing both target Q1."
-4. Adds an open question: "Does the Q2 slip affect the mobile app's dependency on the new auth flow?"
-5. Appends to `wiki/log.md`.
+1. Routes the slip into `wiki/products/auth-service.md` (Q1 → Q2).
+2. Updates `wiki/topics/roadmap-timeline.md`.
+3. **Flags a contradiction**: a topic page still says "auth and billing both target Q1."
+4. Adds an open question: "Does the slip affect mobile's dependency on the new auth flow?"
+5. Files the meeting notes to `raw/notes/` because they're worth keeping.
+6. Appends to `wiki/log.md`.
+7. Deletes the inbox item.
 
-One meeting note. Five files touched. Three things you would have forgotten to update.
+One meeting. Six files touched. Three things you would have forgotten.
 
-## Indexing and logging
+## Skills (the workflow shortcuts)
 
-Two special files help the LLM (and you) navigate the wiki as it grows:
+Skills are reusable, multi-step LLM workflows. Invoke by name:
 
-**index.md** is content-oriented. A catalog of everything in the wiki — each page with a link and a one-line summary, organized by section. The LLM updates it on every ingest. When answering a query, the LLM reads the index first to find relevant pages, then drills into them. This works well at moderate scale (~100 sources, hundreds of pages) without needing embedding-based search.
+| When you want to... | Use |
+|---------------------|-----|
+| Triage a Slack thread, ticket, or meeting note | `/intake` |
+| Find patterns across many inputs | `/synthesize` |
+| Score and rank initiatives | `/prioritize` |
+| Draft or review a PRD | `/prd` |
+| Capture a decision (ADR-style) | `/decision` |
+| Stress-test a plan, find weak assumptions | `/challenge` |
+| Build a quick HTML mockup | `/prototype` |
+| Validate the roadmap | `/roadmap-check` |
+| Compare against competitors | `/competitive` |
+| Write a summary for [exec / eng / partner] | `/brief` |
+| Review what shipped vs. planned | `/retro` |
+| Health-check the wiki | `/lint` |
 
-**log.md** is chronological. An append-only record of what happened and when — ingests, queries, lint passes. Each entry starts with a consistent prefix (`## [2026-04-09] ingest | Meeting Notes`), making the log parseable and giving you a timeline of the wiki's evolution.
-
-## Patterns that work well
-
-**Product pages with standardized templates.** The single most valuable part. One page per product, same sections every time. YAML frontmatter enables Dataview queries (all products where `status: Alpha`, sorted by adoption). Open Questions sections accumulate over time into your 1:1 agenda and risk backlog.
-
-**Cross-cutting topic pages.** Adoption trends, consolidated roadmap, cost/value, dependencies. These synthesize across products and are often the most useful pages for exec conversations.
-
-**Dependency tracking.** A dedicated page with a status matrix: who owns it, what's blocked, current status. The LLM files dependency mentions here during ingest. Over time you get a single view of every external blocker.
-
-**Filing good conversations.** After productive query sessions — comparisons, exec briefs, analyses — file them as wiki pages. Your explorations compound.
+Full catalog with output locations: `skills/SCHEMA.md`.
 
 ## Trust and limitations
 
 The LLM will get things wrong:
 
-- **Overstate certainty.** A tentative meeting comment becomes a firm commitment. A hedged number becomes precise.
+- **Overstate certainty.** A tentative meeting comment becomes a firm commitment.
 - **Hallucinate links.** `[[products/something]]` to a page that doesn't exist. Obsidian shows broken links in red.
-- **Silently rewrite.** Updating one page, the LLM may subtly shift meaning on others. This is the biggest risk.
+- **Silently rewrite.** Updating one page can subtly shift meaning on others. This is the biggest risk.
 
-Mitigations: Treat the wiki as a **working draft, not source of truth.** Use `git diff` after each ingest — the single best trust mechanism. Spot-check 1-2 specific claims (dates, numbers, commitments) against the raw source after each ingest before sending to execs. Run lint periodically.
+Mitigations:
+- **`git diff` after every ingest.** The single best trust mechanism.
+- **Spot-check 1–2 specific claims** (dates, numbers, commitments) against the raw source before you send anything to execs.
+- **Run `/lint` weekly.** Catches contradictions and stale claims.
+- **Verify against `raw/`, not against the wiki.** The wiki is synthesis; `raw/` is truth.
 
-**Contamination control.** Keep this workspace separate from your personal notes vault. LLM-generated content should be reviewed before being pulled into other systems or shared with stakeholders. The wiki is a working draft — not a distribution artifact.
+## Privacy
 
-## Privacy and security
+Markdown lives on your machine, but LLM API calls send content to the model provider (Anthropic, OpenAI, Google). If your docs contain confidential strategy or PII, your company's data classification rules apply. Local models (Ollama, LM Studio) keep everything on-device. Check your AI usage policy before ingesting sensitive material.
 
-This is local-first — markdown files on your machine. But LLM API calls send content to the model provider (OpenAI, Anthropic, Google). If your docs contain confidential strategy, unreleased plans, or PII, your company's data classification policies apply. Local models (Ollama, LM Studio) keep everything on-device. Check your org's AI usage policy before ingesting sensitive documents.
+## When this is worth it
 
-## When to use this
+- Portfolio of products, sustained over months.
+- 20+ sources and growing.
+- You routinely synthesize across documents for stakeholder conversations.
 
-This is for PMs managing a portfolio over months — many sources, compounding knowledge. It's overkill for one-off questions, single-product PMs with few sources, or quick document summarization. The value appears around 20+ sources and grows from there.
+It's overkill for: one-off questions, single-product PMs with few sources, or document summarization.
 
 ## Scaling
 
-**Small (1-20 products, <50 sources):** `index.md` is enough. No extra tooling needed. The LLM reads the index to find relevant pages, then drills into them.
+| Size | What you need |
+|------|---------------|
+| **Small** (1–20 products, <50 sources) | `wiki/index.md` is enough. No extra tooling. |
+| **Medium** (20–100 products, 50–200 sources) | Add local search (qmd, BM25, vector). Frontmatter summaries on every page. |
+| **Large** (100+ products, 200+ sources) | Split into domain-specific workspaces with a shared `raw/`. Embedding-based retrieval starts to outperform index navigation. |
 
-**Medium (20-100 products, 50-200 sources):** Add local search — [qmd](https://github.com/dwb2023/qmd-search) (local BM25/vector search for markdown) or similar. Dataview queries over frontmatter become essential for filtering and sorting. Add one-line summaries to each page's frontmatter so the LLM can preview pages without reading them fully.
+This is a personal tool by default. Read-only wiki snapshots are easy to share. Multi-editor wikis via git work but need merge-conflict care. Start personal, scale later.
 
-**Large (100+ products, 200+ sources):** Consider splitting into domain-specific workspaces with a shared `raw/` library. At this scale, embedding-based search and structured retrieval start to outperform index-based navigation.
+## Recommended tools
 
-**Collaboration:** This is a personal tool by default. Sharing `wiki/` as read-only snapshots works fine. Shared wikis with multiple LLM editors are possible via git but need care around merge conflicts. Start personal, scale later.
-
-## Tools
-
-- **Obsidian** — `[[wiki-style links]]` become clickable, graph view shows wiki shape, Dataview plugin enables dynamic queries over frontmatter.
-- **Obsidian Web Clipper** — browser extension that clips articles to markdown directly into `raw/`.
+- **[Obsidian](https://obsidian.md/)** — `[[wiki-style links]]` become clickable; graph view shows the wiki shape; Dataview enables queries over frontmatter.
 - **Git** — free version history. `git diff` after each ingest is the single best trust mechanism.
-- **Marp** — markdown-based slide decks. Obsidian has a plugin. Generate presentations directly from wiki content.
+- **Obsidian Web Clipper** — clip articles directly into `raw/` from the browser.
+- **[Marp](https://marp.app/)** — markdown slide decks generated from wiki content.
 
-## The schema file
+## What's required vs. optional
 
-The schema (`AGENTS.md`) encodes your PM mental model into rules the LLM follows:
+Hard requirements: `raw/` + `wiki/` + `AGENTS.md` + three operations (ingest, query, lint). Everything else — `inbox/`, `workspace/`, `skills/`, topic pages, output formats — is optional and modular. Start simple. Add structure as you learn what you need.
 
-1. **Page structure.** One page per product, one per group, cross-cutting topic pages, a stakeholder map.
-2. **Page templates.** Consistent sections across all product pages — summary, status, capabilities, adoption, dependencies, roadmap, open questions.
-3. **Workflows.** What happens on ingest, query, and lint.
-4. **Skill routing.** When the PM invokes a skill, follow that skill's structured workflow instead of answering ad-hoc.
-5. **Conventions.** `[[wiki-style links]]` for Obsidian. YAML frontmatter. Date formats.
+## Next
 
-A complete, ready-to-customize `AGENTS.md` is included in this workspace. Fill in the brackets and you're running.
-
-## Note
-
-This describes the pattern, not a fixed implementation. The only hard requirements: raw sources + a wiki + a schema + three operations (ingest, query, lint). Everything else — skills, workspace, inbox, topic pages, output formats — is optional and modular. Start simple, add structure as you learn what you need.
+- `README.md` — setup reference and folder tree
+- `AGENTS.md` — the LLM's operating manual (edit this first)
+- `skills/SCHEMA.md` — full skill catalog
+- `wiki/conventions.md` — page conventions and frontmatter rules
