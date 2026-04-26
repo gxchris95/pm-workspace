@@ -28,6 +28,7 @@ flowchart LR
   deck([/deck])
   retro([/retro])
   lint([/lint])
+  newskill([/new-skill])
 
   inbox --> intake
   raw --> intake
@@ -49,6 +50,8 @@ flowchart LR
   retro --> intake
   lint -.maintains.-> wiki
   lint -.maintains.-> roadmap
+  newskill -.extends.-> intake
+  newskill -.extends.-> lint
 ```
 
 ## Common chains
@@ -67,6 +70,9 @@ flowchart LR
 
 **Maintenance (always available)**
 `/lint` runs anytime. Catches contradictions and stale claims that the other skills can't see across the whole workspace.
+
+**Extending the library**
+`/new-skill` is the meta-skill. Run it when a recurring workflow doesn't fit any of the 13 PM skills. Scaffolds folder, frontmatter, evals, and registers the new skill in AGENTS.md / SCHEMA.md / README.md / GUIDE.md.
 
 ## When skills compose
 

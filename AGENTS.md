@@ -38,6 +38,7 @@ When the PM invokes a skill by name (e.g. `/intake`, `/prd`, `/lint`), read `ski
 | Communicate | `/deck` | Build an audience-tailored slide deck (Marp markdown → PPTX/PDF) |
 | Reflect | `/retro` | Compare planned vs. actual; learn |
 | Maintain | `/lint` | Wiki + workspace health check |
+| Maintain | `/new-skill` | Scaffold a new skill (meta) |
 
 Full catalog and routing rules: `skills/SCHEMA.md`.
 

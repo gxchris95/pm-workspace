@@ -92,7 +92,7 @@ Only `SKILL.md` is loaded into the agent's working context by default. The agent
    intake       synthesize    prioritize    prd       challenge       brief         retro
    competitive                 decision               prototype       deck
                                                       roadmap-check
-                                                      lint (Maintain — runs anytime)
+                                                      lint, new-skill (Maintain — run anytime)
 ```
 
 The flow shows where each skill fits conceptually — not a required sequence. Jump in anywhere. Run `/challenge` before `/prd` to stress-test assumptions early. Run `/lint` anytime. Run `/brief` mid-discovery to sharpen thinking.
@@ -114,6 +114,7 @@ The flow shows where each skill fits conceptually — not a required sequence. J
 | `/deck` | Communicate | Audience-tailored slide deck — Marp markdown (PPTX/PDF on render) | `workspace/decks/` |
 | `/retro` | Reflect | Planned vs. actual, velocity, root-cause, action items | `workspace/retros/` |
 | `/lint` | Maintain | Wiki + workspace health check | inline |
+| `/new-skill` | Maintain | Meta-skill: scaffold a new skill (folder, frontmatter, evals, registration) | `skills/<name>/` |
 
 ## Frontmatter conventions for workspace artifacts
 

@@ -20,7 +20,7 @@ ChatGPT uploads, NotebookLM, and RAG systems solve neither. They retrieve at que
 
 A workspace that does two things at once, and lets each one make the other better.
 
-**Skills run the daily work.** A library of structured workflows — `/intake`, `/synthesize`, `/prioritize`, `/prd`, `/decision`, `/challenge`, `/prototype`, `/competitive`, `/roadmap-check`, `/brief`, `/deck`, `/retro`, `/lint` — that the LLM follows when you invoke them by name. Same shape every time. Outputs land in the right folder with the right frontmatter, ready to share or revisit.
+**Skills run the daily work.** A library of structured workflows — `/intake`, `/synthesize`, `/prioritize`, `/prd`, `/decision`, `/challenge`, `/prototype`, `/competitive`, `/roadmap-check`, `/brief`, `/deck`, `/retro`, `/lint`, `/new-skill` — that the LLM follows when you invoke them by name. Same shape every time. Outputs land in the right folder with the right frontmatter, ready to share or revisit.
 
 **The wiki compounds.** Every ingested source, every skill run feeds a persistent, cross-linked knowledge base — product pages, topic pages, a roadmap timeline, an index, a log. The LLM reads new material, integrates it into existing pages, flags contradictions, and keeps the synthesis current. You never write the wiki yourself.
 
@@ -119,6 +119,7 @@ Skills are reusable, multi-step LLM workflows. Invoke by name:
 | Build a slide deck for an audience | `/deck` |
 | Review what shipped vs. planned | `/retro` |
 | Health-check the wiki | `/lint` |
+| Scaffold a new skill (meta) | `/new-skill` |
 
 Full catalog with output locations: `skills/SCHEMA.md`.
 
