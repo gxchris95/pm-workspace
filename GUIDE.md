@@ -73,7 +73,7 @@ Ask anything. The LLM reads `wiki/index.md` first to find relevant pages, drills
 ### Lint
 Periodic health-check. Contradictions, stale claims, orphan pages, missed roadmap dates, unanswered open questions. Run weekly or after major ingests.
 
-## Quick start (5 minutes)
+## Quick start (10–30 minutes)
 
 1. **Copy this folder** to a new location. Rename it to your domain (e.g. `ai-platform-wiki/`).
 2. **Edit `AGENTS.md`** — fill in the `[brackets]`: your portfolio, your products, the raw subfolders you want.
@@ -174,4 +174,7 @@ Hard requirements: `raw/` + `wiki/` + `AGENTS.md` + three operations (ingest, qu
 - `README.md` — setup reference and folder tree
 - `AGENTS.md` — the LLM's operating manual (edit this first)
 - `skills/SCHEMA.md` — full skill catalog
+- `skills/GRAPH.md` — how skills chain together
+- `BEST-PRACTICES.md` — agent standard best practices (skill design, AGENTS.md authoring)
 - `wiki/conventions.md` — page conventions and frontmatter rules
+- `CONTRIBUTING.md` — how to add or modify skills, wiki pages, and templates

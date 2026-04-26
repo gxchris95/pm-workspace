@@ -14,6 +14,8 @@ raw/
 ├── engineering/      Architecture docs, tech specs, ADRs
 ├── governance/       Policies, compliance, security frameworks
 ├── metrics/          Adoption data, dashboards, value analyses
+├── decks/            Past presentation decks (your own and others') for reference
+├── research/         Analyst reports, white papers, market research
 └── notes/            Meeting notes, Slack threads, clipped web pages
 ```
 

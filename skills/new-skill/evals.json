@@ -1,0 +1,26 @@
+{
+  "should_trigger": [
+    "add a new skill called /forecast",
+    "scaffold a skill that scores OKRs",
+    "I want to create a /standup workflow",
+    "bootstrap a slash command for monthly business reviews",
+    "make a new skill for handling escalations",
+    "create a /onboarding skill",
+    "set up a new workflow that turns Gong calls into briefs",
+    "I need a custom skill for partner QBRs",
+    "register a new skill named /board-prep",
+    "scaffold a /risk-log workflow"
+  ],
+  "should_not_trigger": [
+    "what skills are available?",
+    "run /lint",
+    "build a deck for the exec review",
+    "write a PRD for auth-service",
+    "process this Slack thread",
+    "summarize the latest customer call",
+    "compare us to vendor X",
+    "validate the roadmap",
+    "draft a decision record for build vs. buy",
+    "review what shipped last quarter"
+  ]
+}

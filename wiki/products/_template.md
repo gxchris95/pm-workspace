@@ -3,7 +3,7 @@ product: example-product
 status: Production | Alpha | Beta | Coming Soon
 adoption: 0
 last_updated: YYYY-MM-DD
-sources: []
+sources: []  # cite at least one wiki page or raw source
 ---
 
 # Example Product

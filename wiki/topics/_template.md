@@ -1,7 +1,7 @@
 ---
 topic: example-topic
 last_updated: YYYY-MM-DD
-sources: []
+sources: []  # cite at least one wiki page or raw source
 ---
 
 # Example Topic

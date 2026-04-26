@@ -7,7 +7,9 @@
     "I need a 5-slide pitch for the design review",
     "put together a readout for the eng team on the new architecture",
     "turn this PRD into a customer presentation",
-    "build a QBR deck for the platform team"
+    "build a QBR deck for the platform team",
+    "pull together slides for the strategy offsite",
+    "make a Marp deck summarizing the retro findings"
   ],
   "should_not_trigger": [
     "summarize this thread for me",
@@ -16,6 +18,9 @@
     "score these initiatives",
     "what's the latest on the auth slip?",
     "draft a Slack message announcing the launch",
-    "lint the wiki"
+    "lint the wiki",
+    "spec out the new auth flow",
+    "what shipped last quarter vs. what was planned",
+    "give me a competitive analysis of vendor X"
   ]
 }

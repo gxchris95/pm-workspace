@@ -37,6 +37,8 @@ Immutable inputs. The LLM reads from raw/ but never modifies its contents.
 | `raw/engineering/` | Architecture docs, tech specs, ADRs |
 | `raw/governance/` | Policies, compliance, security frameworks |
 | `raw/metrics/` | Adoption data, dashboards, value analyses |
+| `raw/decks/` | Past presentation decks for reference |
+| `raw/research/` | Analyst reports, white papers, market research |
 | `raw/notes/` | Meeting notes, Slack threads, clipped pages |
 
 When ingesting, always note which raw source(s) informed a wiki page update. Inbox items graduate to raw/ when worth keeping permanently.
@@ -80,6 +82,10 @@ Required sections: Summary, Status & Maturity, Key Capabilities, Adoption, Depen
 ### Topic pages — `wiki/topics/*.md`
 Use `wiki/topics/_template.md`.
 Cross-cutting analysis. Frontmatter: `topic`, `last_updated`, `sources`.
+
+### Stakeholder pages — `wiki/stakeholders/*.md`
+`teams.md` is the default rollup. For deeper coverage, add per-stakeholder pages: `wiki/stakeholders/<name>.md` (e.g. `acme-corp.md`, `partner-portal-eng.md`). Use `wiki/stakeholders/_template.md`.
+Frontmatter: `stakeholder`, `type` (team / customer / partner / dependency), `last_updated`, `sources`.
 
 ### Index — `wiki/index.md`
 Master catalog. Every wiki page listed with a one-line summary. Updated on every ingest or page creation. Read this first when answering queries.

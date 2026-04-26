@@ -26,6 +26,7 @@ Use the values defined in `AGENTS.md` (single source of truth). Defaults if not 
 | Stale draft PRD | 30 days since `created` with `status: Draft` |
 | Stale proposed decision | 14 days since `date` with `status: Proposed` |
 | Stale inbox item | 7 days unprocessed |
+| Stale deck draft | 30 days since `last_updated` with `status: Draft` |
 
 ## Process
 
@@ -91,6 +92,16 @@ Check `workspace/decisions/` for records with `status: Proposed` past the propos
 
 #### Empty inbox
 Check `inbox/` subdirectories. If items have been sitting unprocessed past the inbox threshold, flag them.
+
+#### Stale decks
+Check `workspace/decks/*.md` (excluding `_template.md`) for items with `status: Draft` past the deck stale threshold. Decks tend to drift fastest — what shipped two months ago is rarely still accurate.
+
+```markdown
+### Stale Decks
+
+| Deck | Last Updated | Status | Suggested Action |
+|------|--------------|--------|-----------------|
+```
 
 ### 3. Schema compliance
 

@@ -70,6 +70,7 @@ These thresholds are referenced by skills. Tune to taste.
 | Stale draft PRD | 30 days since `created` with `status: Draft` |
 | Stale proposed decision | 14 days since `date` with `status: Proposed` |
 | Stale inbox item | 7 days unprocessed |
+| Stale deck draft | 30 days since `last_updated` with `status: Draft` |
 | PRD maximum length | 2 pages |
 | Exec brief maximum length | 1 page |
 
@@ -128,5 +129,8 @@ After major operations, reflect: contradictions found, sources lacking detail, m
 
 - `wiki/conventions.md` — full layer reference, frontmatter, cross-referencing
 - `skills/SCHEMA.md` — skill catalog and sprint flow
+- `skills/GRAPH.md` — how skills chain together
+- `BEST-PRACTICES.md` — agent standard best practices (skill design, AGENTS.md authoring)
 - `wiki/index.md` — master catalog of all wiki pages
+- `mcp-config.example.json` — example MCP server config (optional)
 - `CLAUDE.md` — Claude Code entry point (also valid for other agents reading AGENTS.md)

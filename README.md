@@ -25,7 +25,7 @@ Works with any agent that reads/writes local files: Claude Code, GitHub Copilot 
 4. **Open in your LLM agent** and say:
    > *"Read AGENTS.md. Read all sources in raw/. Build the initial wiki."*
 
-5. **Review the output.** Guide corrections. The initial build takes 10-30 minutes depending on volume.
+5. **Review the output.** Guide corrections. The initial build takes 10–30 minutes depending on volume.
 
 6. **From here:** add sources → ingest → query → lint → repeat. Run skills as needed.
 
@@ -150,10 +150,20 @@ Skills extend these operations with structured, multi-step workflows:
 - **`wiki/topics/`** — add or remove topic pages as needed (governance, cost, security, etc.)
 - **Skills** — work out of the box for any PM domain. Customize or add new ones as needed. Claude Code users can also wire skills as native slash commands by copying them to `.claude/commands/`.
 
+## See also
+
+- `GUIDE.md` — the pattern explained
+- `AGENTS.md` — the LLM operating manual
+- `BEST-PRACTICES.md` — agent standard best practices (skill design, AGENTS.md authoring)
+- `CONTRIBUTING.md` — how to add or modify skills and wiki pages
+- `skills/SCHEMA.md` — skill catalog
+- `skills/GRAPH.md` — how skills chain together
+- `mcp-config.example.json` — optional MCP server config example
+
 ## Credits
 
 This system synthesizes patterns from:
 - **[LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)** (Andrej Karpathy) — three-layer knowledge architecture
 - **[gstack](https://github.com/garrytan/gstack)** (Garry Tan) — AI skills as sprint process
-- **GTD** (David Allen), **PARA** (Tiago Forte), **Shape Up** (Ryan Singer / Basecamp)
-- **Continuous Discovery** (Teresa Torres), **SVPG** (Marty Cagan), **ADRs** (Michael Nygard)
+- **[GTD](https://gettingthingsdone.com/)** (David Allen), **[PARA](https://fortelabs.com/blog/para/)** (Tiago Forte), **[Shape Up](https://basecamp.com/shapeup)** (Ryan Singer / Basecamp)
+- **[Continuous Discovery](https://www.producttalk.org/continuous-discovery-habits/)** (Teresa Torres), **[SVPG](https://www.svpg.com/)** (Marty Cagan), **[ADRs](https://adr.github.io/)** (Michael Nygard)
