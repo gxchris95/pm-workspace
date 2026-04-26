@@ -35,6 +35,7 @@ When the PM invokes a skill by name (e.g. `/intake`, `/prd`, `/lint`), read `ski
 | Validate | `/prototype` | Build a quick HTML prototype to pressure-test ideas |
 | Validate | `/roadmap-check` | Surface slips, conflicts, blockers, alignment gaps |
 | Communicate | `/brief` | Audience-tailored summary (exec, eng, designer, partner) |
+| Communicate | `/deck` | Build an audience-tailored slide deck (Marp markdown → PPTX/PDF) |
 | Reflect | `/retro` | Compare planned vs. actual; learn |
 | Maintain | `/lint` | Wiki + workspace health check |
 
@@ -71,6 +72,31 @@ These thresholds are referenced by skills. Tune to taste.
 | Stale inbox item | 7 days unprocessed |
 | PRD maximum length | 2 pages |
 | Exec brief maximum length | 1 page |
+
+## Boundaries
+
+Three tiers govern what the agent may do without asking.
+
+**Allowed without prompt**
+- Read any file in `inbox/`, `raw/`, `wiki/`, `workspace/`, `skills/`
+- Create or update pages in `wiki/` and `workspace/` as part of an invoked skill or core workflow
+- Append entries to `wiki/log.md`
+- Move processed items out of `inbox/`
+- Run `/lint` and report findings
+
+**Ask first**
+- Delete or rename anything in `raw/` (immutable by default)
+- Delete wiki pages or workspace artifacts (vs. archiving)
+- Modify `AGENTS.md`, `CLAUDE.md`, `wiki/conventions.md`, or `skills/*/SKILL.md`
+- Mark a workspace artifact `Shipped`, `Approved`, or `Final`
+- Send anything outside the workspace (commit, push, share link, export to slides)
+
+**Never**
+- Commit secrets, API keys, customer PII, or unredacted transcripts
+- Overwrite `raw/` content with synthesized text — `raw/` is source of truth
+- Treat the wiki as authoritative when raw and wiki disagree — verify against `raw/`
+- Invent quotes, metrics, dates, or commitments not present in a source
+- Edit a file without reading it first
 
 ## Naming conventions
 

@@ -90,7 +90,7 @@ Only `SKILL.md` is loaded into the agent's working context by default. The agent
    Discover ──► Synthesize ──► Decide ──► Define ──► Validate ──► Communicate ──► Reflect
       │             │             │           │           │             │             │
    intake       synthesize    prioritize    prd       challenge       brief         retro
-   competitive                 decision               prototype
+   competitive                 decision               prototype       deck
                                                       roadmap-check
                                                       lint (Maintain — runs anytime)
 ```
@@ -111,6 +111,7 @@ The flow shows where each skill fits conceptually — not a required sequence. J
 | `/prototype` | Validate | Single-file HTML prototype with self-inspection check | `workspace/prototypes/` |
 | `/roadmap-check` | Validate | Slips, conflicts, blockers, alignment gaps | inline |
 | `/brief` | Communicate | Audience-tailored summary (exec, eng, designer, partner) | `workspace/briefs/` |
+| `/deck` | Communicate | Audience-tailored slide deck — Marp markdown (PPTX/PDF on render) | `workspace/decks/` |
 | `/retro` | Reflect | Planned vs. actual, velocity, root-cause, action items | `workspace/retros/` |
 | `/lint` | Maintain | Wiki + workspace health check | inline |
 

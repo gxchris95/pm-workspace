@@ -10,6 +10,7 @@ workspace/
 ├── decisions/      Decision records — ADR-style (from /decision skill)
 ├── briefs/         Exec/stakeholder briefs (from /brief skill)
 ├── prototypes/     Quick prototypes, design specs (from /prototype skill)
+├── decks/          Audience-tailored slide decks in Marp markdown (from /deck skill)
 └── retros/         Sprint/quarter retrospectives (from /retro skill)
 ```
 

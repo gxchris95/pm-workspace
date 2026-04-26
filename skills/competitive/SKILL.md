@@ -16,104 +16,14 @@ You need to understand how a product or capability compares to what exists in th
 
 ## Process
 
-### 1. Define the scope
-
-Clarify what you're benchmarking:
-- **Product-level**: "How does [your product] compare to alternatives?"
-- **Capability-level**: "How does our approach to [feature] compare?"
-- **Category-level**: "What does the [market category] landscape look like?"
-
-### 2. Read internal state
-
-Read the relevant wiki product page(s) and any PRDs. Understand: what we have today, what's on the roadmap, what our differentiators are, and what our known gaps are.
-
-### 3. Map the landscape
-
-Identify competitors, alternatives, and adjacent solutions. Group them:
-
-```markdown
-## Landscape Map
-
-### Direct Competitors
-Products solving the same problem for a similar audience.
-| Player | What they offer | Maturity | Target audience |
-|--------|----------------|----------|-----------------|
-
-### Adjacent Solutions
-Products that overlap partially or could expand into our space.
-| Player | Overlap area | Threat level |
-|--------|-------------|-------------|
-
-### Open Source / Standards
-Relevant open-source projects, protocols, or standards.
-| Project | Relevance |
-|---------|-----------|
-```
-
-### 4. Feature comparison
-
-Build a detailed comparison table:
-
-```markdown
-## Feature Comparison
-
-| Capability | Our Product | Competitor A | Competitor B | Competitor C |
-|-----------|------------|-------------|-------------|-------------|
-| [feature] | ✅ / ⚠️ Partial / ❌ | ... | ... | ... |
-```
-
-Use:
-- ✅ = fully supported
-- ⚠️ = partial or planned
-- ❌ = not available
-- 🔜 = on roadmap (with date if known)
-
-### 5. Differentiation analysis
-
-```markdown
-## Where We Lead
-- [capability] — [why we're ahead, with specifics]
-
-## Where We're At Parity
-- [capability] — [what competitors also offer]
-
-## Where We Trail
-- [capability] — [what competitors have that we don't]
-
-## Unique to Us
-- [capability that no competitor has, and why it matters]
-```
-
-### 6. Gap analysis
-
-```markdown
-## Gaps and Opportunities
-
-| Gap | Competitors Who Have It | Impact if We Don't Address | Effort to Close |
-|-----|------------------------|---------------------------|-----------------|
-```
-
-### 7. Strategic recommendations
-
-```markdown
-## Recommendations
-
-### Double down (our strength, high value)
-- [capability] — because [reasoning]
-
-### Close the gap (competitor strength, our weakness, high impact)
-- [capability] — because [reasoning]
-
-### Ignore (low impact, high effort)
-- [capability] — because [reasoning]
-
-### Watch (emerging, uncertain)
-- [trend/capability] — revisit in [timeframe]
-```
-
-### 8. Save (if requested)
-
-Save to `workspace/briefs/<product>-competitive.md`.
+1. **Define the scope.** Product-level ("how does X compare?"), capability-level ("how does our approach to feature Y compare?"), or category-level ("what does the market for Z look like?").
+2. **Read internal state.** Read the relevant `wiki/products/<product>.md` and any in-flight PRDs. Note current capabilities, roadmap, differentiators, and known gaps.
+3. **Map the landscape.** Identify direct competitors, adjacent solutions, and open-source/standards. Use the Landscape Map block in `references/templates.md`.
+4. **Build the feature comparison.** Use the Feature Comparison block in `references/templates.md`. Be specific — capabilities and outcomes, not feature checklists.
+5. **Differentiation analysis.** Where we lead / parity / trail / unique. Block in `references/templates.md`.
+6. **Gap analysis.** Use the Gaps table. Score impact and effort.
+7. **Strategic recommendations.** Double down / close the gap / ignore / watch. Block in `references/templates.md`.
+8. **Save** to `workspace/briefs/<product>-competitive.md` if requested.
 
 ## Tips
 
@@ -125,6 +35,7 @@ Save to `workspace/briefs/<product>-competitive.md`.
 
 ## See also
 
+- `references/templates.md` — copy-paste section templates for landscape, feature comparison, differentiation, gaps, recommendations
 - `/challenge` — use competitive findings to stress-test your own product
 - `/brief` — include competitive context in stakeholder communications
 - `/prd` — competitive gaps may drive new PRD requirements

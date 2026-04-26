@@ -1,0 +1,21 @@
+{
+  "should_trigger": [
+    "build a deck for the exec review next week",
+    "draft slides for the board update on auth-service",
+    "make a PPT for the partner kickoff",
+    "create a presentation on Q1 results for all-hands",
+    "I need a 5-slide pitch for the design review",
+    "put together a readout for the eng team on the new architecture",
+    "turn this PRD into a customer presentation",
+    "build a QBR deck for the platform team"
+  ],
+  "should_not_trigger": [
+    "summarize this thread for me",
+    "write a 1-page brief for the CEO",
+    "review this PRD",
+    "score these initiatives",
+    "what's the latest on the auth slip?",
+    "draft a Slack message announcing the launch",
+    "lint the wiki"
+  ]
+}

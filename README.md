@@ -1,12 +1,12 @@
 # PM Workspace
 
-An AI-powered PM operating system — a persistent knowledge base, 12 structured workflows, and a schema that turns any LLM agent into a disciplined product management partner.
+An AI-powered PM operating system — a persistent knowledge base, 13 structured workflows, and a schema that turns any LLM agent into a disciplined product management partner.
 
 **New here?** Read `GUIDE.md` first — it explains the pattern, why it works, and how to think about it day-to-day. This README is the setup reference.
 
 ## What this is
 
-A schema and 12 AI workflows that turn any LLM agent into a disciplined PM partner. You bring the sources and judgment. The LLM builds a persistent wiki, writes PRDs, runs competitive analysis, prepares exec briefs, tracks roadmap health, and more — all following structured, repeatable processes.
+A schema and 13 AI workflows that turn any LLM agent into a disciplined PM partner. You bring the sources and judgment. The LLM builds a persistent wiki, writes PRDs, runs competitive analysis, prepares exec briefs, builds presentation decks, tracks roadmap health, and more — all following structured, repeatable processes.
 
 Works with any agent that reads/writes local files: Claude Code, GitHub Copilot in VS Code, and others. A `CLAUDE.md` is included for Claude Code; other agents will read `AGENTS.md` directly.
 
@@ -49,7 +49,7 @@ pm-workspace/
 │   │   ├── dependencies.md
 │   │   └── roadmap-timeline.md
 │   └── stakeholders/teams.md
-├── skills/                ← 12 PM workflow skills (one folder each)
+├── skills/                ← 13 PM workflow skills (one folder each)
 │   ├── SCHEMA.md          ← Skills system overview
 │   ├── intake/
 │   │   ├── SKILL.md       ← Process raw signals
@@ -63,6 +63,7 @@ pm-workspace/
 │   ├── brief/             ← Audience-tailored summaries
 │   ├── roadmap-check/     ← Validate roadmap, flag slips
 │   ├── competitive/       ← Market landscape analysis
+│   ├── deck/              ← Audience-tailored slide deck (Marp → PPTX/PDF)
 │   ├── retro/             ← Planned vs. actual
 │   └── lint/              ← Wiki + workspace health check
 ├── inbox/                 ← Signal queue
@@ -75,6 +76,7 @@ pm-workspace/
 │   ├── decisions/_template.md
 │   ├── briefs/_template.md
 │   ├── prototypes/_template.md
+│   ├── decks/_template.md
 │   └── retros/_template.md
 ├── raw/                   ← Reference library
 │   └── README.md
@@ -106,7 +108,7 @@ pm-workspace/
 
 Skills extend these operations with structured, multi-step workflows:
 
-**Twelve skills** — invoke by name when you need structured workflows:
+**Thirteen skills** — invoke by name when you need structured workflows:
 
 | Skill | When to use |
 |-------|-------------|
@@ -118,6 +120,7 @@ Skills extend these operations with structured, multi-step workflows:
 | `/challenge` | Stress-test assumptions, find gaps |
 | `/prototype` | Quick mockup or design spec |
 | `/brief` | Exec summary, stakeholder update |
+| `/deck` | Build a slide deck for a specific audience (Marp → PPTX/PDF) |
 | `/roadmap-check` | Validate timeline, flag slips |
 | `/competitive` | Market landscape analysis |
 | `/retro` | What shipped vs. planned, learnings |
